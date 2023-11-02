@@ -19,11 +19,13 @@
 #include <netinet/in.h>   // 'in_addr' structure declaration used by 'inet_ntoa()'
 #include <arpa/inet.h>    // Provides 'inet_ntoa()' declaration
 #include <net/ethernet.h> // Provides ethernet header declaration
+#include <netinet/ether.h>// Provides 'ether_nota()' and 'ether_addr()'
 
 FILE *logFile = NULL;
 
 // Function prototypes
 void process_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
+u_int16_t parse_ethernet_header(u_char *, const struct pcap_pkthdr *, const u_char *);
 
 int main(int argc, char *argv[])
 {
@@ -145,9 +147,56 @@ int main(int argc, char *argv[])
 void process_packet(u_char *args, const struct pcap_pkthdr *header,
                     const u_char *packet)
 {
-  static int count = 1;
-  fprintf(stdout, "Packet count: %d\n", count);
+  // Get the ethernet protocol type 
+  u_int16_t packetType = parse_ethernet_header(args, header, packet);
 
-  fflush(stdout);
+  if(packetType == ETHERTYPE_IP){
+    // Handle IP packet 
+  }
+  else if(packetType == ETHERTYPE_ARP){
+    // Handle ARP packet 
+  }
+  else if(packetType == ETHERTYPE_REVARP){
+    // Hadle reverse ARP packet
+  }
+}
+
+u_int16_t parse_ethernet_header(u_char *args, const struct pcap_pkthdr *header,
+                                const u_char *packet)
+{
+
+  static int count = 1;                    // Packet counter 
+  printf("\nPacket number %d:\n", count);
   count++;
+
+  struct ether_header *pEthernetHeader;    // Declared in 'net/ethernet.h'
+
+  pEthernetHeader = (struct ether_header *) packet; 
+  
+  // Convert ethernet address to ASCII 
+  fprintf(stdout, "  ethernet header: source-> %s  ", ether_ntoa((const struct ether_addr *) pEthernetHeader->ether_shost));
+  fprintf(stdout, "destination -> %s", ether_ntoa((const struct ether_addr *)pEthernetHeader->ether_dhost));
+
+  // Print the ethernet protocol type
+  switch (ntohs(pEthernetHeader->ether_type))
+  {
+    case ETHERTYPE_IP: // IPv4 type
+      fprintf(stdout, " (IP)");
+      break;
+
+    case ETHERTYPE_ARP:
+      fprintf(stdout, " (ARP)");
+      break;
+
+    case ETHERTYPE_REVARP:
+      fprintf(stdout, " (RARP)");
+      break;
+
+    default: // Some other ethernet protocol. See 'net/ethernet.h'
+      fprintf(stdout, " (?)");
+      break;
+  }
+  fprintf(stdout, "\n");
+
+  return pEthernetHeader->ether_type; 
 }
