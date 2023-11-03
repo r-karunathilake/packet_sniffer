@@ -1,50 +1,152 @@
 
+===================================ICMP Packet===================================
 Ethernet Header
     | Destination MAC: 0:15:5d:d5:4a:cd 
     | Source MAC     : 0:15:5d:99:a:bc 
     | Protocol       : IP 
 
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 64064 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 56527 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 192.2.6.8 
+
+===================================ICMP Packet===================================
 Ethernet Header
     | Destination MAC: 0:15:5d:d5:4a:cd 
     | Source MAC     : 0:15:5d:99:a:bc 
     | Protocol       : IP 
 
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 64103 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 56488 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 192.2.6.8 
+
+===================================ICMP Packet===================================
 Ethernet Header
     | Destination MAC: 0:15:5d:d5:4a:cd 
     | Source MAC     : 0:15:5d:99:a:bc 
     | Protocol       : IP 
 
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 64172 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 56419 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 192.2.6.8 
+
+===================================ICMP Packet===================================
 Ethernet Header
     | Destination MAC: 0:15:5d:d5:4a:cd 
     | Source MAC     : 0:15:5d:99:a:bc 
     | Protocol       : IP 
 
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 64252 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 56339 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 192.2.6.8 
+
+===================================ICMP Packet===================================
 Ethernet Header
     | Destination MAC: 0:15:5d:d5:4a:cd 
     | Source MAC     : 0:15:5d:99:a:bc 
     | Protocol       : IP 
 
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 64286 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 56305 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 192.2.6.8 
+
+===================================ICMP Packet===================================
 Ethernet Header
     | Destination MAC: 0:15:5d:d5:4a:cd 
     | Source MAC     : 0:15:5d:99:a:bc 
-    | Protocol       : ARP 
+    | Protocol       : IP 
 
-Ethernet Header
-    | Destination MAC: 0:15:5d:99:a:bc 
-    | Source MAC     : 0:15:5d:d5:4a:cd 
-    | Protocol       : ARP 
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 64386 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 56205 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 192.2.6.8 
 
+===================================ICMP Packet===================================
 Ethernet Header
     | Destination MAC: 0:15:5d:d5:4a:cd 
     | Source MAC     : 0:15:5d:99:a:bc 
     | Protocol       : IP 
 
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 64411 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 56180 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 192.2.6.8 
+
+===================================ICMP Packet===================================
 Ethernet Header
     | Destination MAC: 0:15:5d:d5:4a:cd 
     | Source MAC     : 0:15:5d:99:a:bc 
     | Protocol       : IP 
 
-Ethernet Header
-    | Destination MAC: 0:15:5d:d5:4a:cd 
-    | Source MAC     : 0:15:5d:99:a:bc 
-    | Protocol       : IP 
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 64470 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 56121 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 192.2.6.8 
