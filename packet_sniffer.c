@@ -33,7 +33,7 @@ static int other_count = 0;
 
 // Function prototypes
 void process_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
-void parse_ip_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
+u_int8_t parse_ip_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 u_int16_t parse_ethernet_header(u_char *, const struct pcap_pkthdr *, const u_char *);
 
 int main(int argc, char *argv[])
@@ -165,7 +165,34 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header,
 	// Parse IP packet
 	if (packetType == ETHERTYPE_IP)
 	{
-		parse_ip_packet(args, header, packet);
+		uint8_t ipProtocol = parse_ip_packet(args, header, packet);
+		switch (ipProtocol) // See RFC 790 for protocol-value mapping
+		{
+			case 1: // ICMP protocol
+				++icmp_count;
+				fprintf(logFile, "*****Received ICMP packet!*****\n");
+				break;
+
+			case 2: // IGMP protocol
+				++igmp_count;
+				printf("Received IGMP packet!\n");
+				break;
+
+			case 6: // TCP protocol
+				++tcp_count;
+				printf("Received TCP packet!\n");
+				break;
+
+			case 17: // UDP protocol
+				++udp_count;
+				printf("Received UDP packet!\n");
+				break;
+
+			default: // Another protocol like Telnet and invalid protocols 
+				++other_count;
+				printf("Received other packet!\n");
+				break;
+		}
 	}
 	else if (packetType == ETHERTYPE_ARP)
 	{
@@ -213,36 +240,19 @@ u_int16_t parse_ethernet_header(u_char *args, const struct pcap_pkthdr *header,
 	return ntohs(pEthernetHeader->ether_type);
 }
 
-void parse_ip_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *packet)
+uint8_t parse_ip_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *packet)
 {
 	struct iphdr *pIPHeader = (struct iphdr *)(packet + sizeof(struct ether_header));
-	++total;
-
-	switch (pIPHeader->protocol) // See RFC 790 for protocol-value mapping
+	u_int size = header->len;
+	if (size < sizeof(struct iphdr))
 	{
-	case 1: // ICMP protocol
-		++icmp_count;
-		printf("Received ICMP packet!\n");
-		break;
-
-	case 2: // IGMP protocol
-		++igmp_count;
-		printf("Received IGMP packet!\n");
-		break;
-
-	case 6: // TCP protocol
-		++tcp_count;
-		printf("Received TCP packet!\n");
-		break;
-
-	case 17: // UDP protocol
-		++udp_count;
-		printf("Received UDP packet!\n");
-		break;
-
-	default: // Another protocol like Telnet
-		++other_count;
-		printf("Received other packet!\n");
-		break;
+		fprintf(stderr, "Warning: Truncated IP packet header detected (expected %lu bytes got %d bytes)", sizeof(struct iphdr), size);
+		return -1; // Invalid protocol 
 	}
+	++total; // Valid IP packet detected
+
+	//TODO: call the ethernet header parser from inside the ip parser 
+	//TODO: log the parsed IP packet
+
+	return pIPHeader->protocol;
 }
