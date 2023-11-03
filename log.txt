@@ -10,13 +10,28 @@ IP Header
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
     | Total Length           : 84 Bytes 
-    | Identification         : 64064 
+    | Identification         : 49129 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
     | Transport Protocol     : 1 
-    | Checksum               : 56527 
+    | Checksum               : 5927 
     | Source IP Address      : 172.31.241.110 
     | Destination IP Address : 192.2.6.8 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 52691
+
+                                   RAW DATA                                   
+Ethernet Header
+Printing RAW data
+IP Header
+Printing RAW data
+ICMP Header
+Printing RAW data
+Payload
+Printing RAW data
 
 ===================================ICMP Packet===================================
 Ethernet Header
@@ -29,13 +44,28 @@ IP Header
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
     | Total Length           : 84 Bytes 
-    | Identification         : 64103 
+    | Identification         : 49192 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
     | Transport Protocol     : 1 
-    | Checksum               : 56488 
+    | Checksum               : 5864 
     | Source IP Address      : 172.31.241.110 
     | Destination IP Address : 192.2.6.8 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 24632
+
+                                   RAW DATA                                   
+Ethernet Header
+Printing RAW data
+IP Header
+Printing RAW data
+ICMP Header
+Printing RAW data
+Payload
+Printing RAW data
 
 ===================================ICMP Packet===================================
 Ethernet Header
@@ -48,13 +78,28 @@ IP Header
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
     | Total Length           : 84 Bytes 
-    | Identification         : 64172 
+    | Identification         : 49207 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
     | Transport Protocol     : 1 
-    | Checksum               : 56419 
+    | Checksum               : 5849 
     | Source IP Address      : 172.31.241.110 
     | Destination IP Address : 192.2.6.8 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 52417
+
+                                   RAW DATA                                   
+Ethernet Header
+Printing RAW data
+IP Header
+Printing RAW data
+ICMP Header
+Printing RAW data
+Payload
+Printing RAW data
 
 ===================================ICMP Packet===================================
 Ethernet Header
@@ -67,13 +112,28 @@ IP Header
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
     | Total Length           : 84 Bytes 
-    | Identification         : 64252 
+    | Identification         : 49232 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
     | Transport Protocol     : 1 
-    | Checksum               : 56339 
+    | Checksum               : 5824 
     | Source IP Address      : 172.31.241.110 
     | Destination IP Address : 192.2.6.8 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 60963
+
+                                   RAW DATA                                   
+Ethernet Header
+Printing RAW data
+IP Header
+Printing RAW data
+ICMP Header
+Printing RAW data
+Payload
+Printing RAW data
 
 ===================================ICMP Packet===================================
 Ethernet Header
@@ -86,13 +146,28 @@ IP Header
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
     | Total Length           : 84 Bytes 
-    | Identification         : 64286 
+    | Identification         : 49270 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
     | Transport Protocol     : 1 
-    | Checksum               : 56305 
+    | Checksum               : 5786 
     | Source IP Address      : 172.31.241.110 
     | Destination IP Address : 192.2.6.8 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 1159
+
+                                   RAW DATA                                   
+Ethernet Header
+Printing RAW data
+IP Header
+Printing RAW data
+ICMP Header
+Printing RAW data
+Payload
+Printing RAW data
 
 ===================================ICMP Packet===================================
 Ethernet Header
@@ -105,13 +180,28 @@ IP Header
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
     | Total Length           : 84 Bytes 
-    | Identification         : 64386 
+    | Identification         : 49293 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
     | Transport Protocol     : 1 
-    | Checksum               : 56205 
+    | Checksum               : 5763 
     | Source IP Address      : 172.31.241.110 
     | Destination IP Address : 192.2.6.8 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 54571
+
+                                   RAW DATA                                   
+Ethernet Header
+Printing RAW data
+IP Header
+Printing RAW data
+ICMP Header
+Printing RAW data
+Payload
+Printing RAW data
 
 ===================================ICMP Packet===================================
 Ethernet Header
@@ -124,13 +214,28 @@ IP Header
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
     | Total Length           : 84 Bytes 
-    | Identification         : 64411 
+    | Identification         : 49347 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
     | Transport Protocol     : 1 
-    | Checksum               : 56180 
+    | Checksum               : 5709 
     | Source IP Address      : 172.31.241.110 
     | Destination IP Address : 192.2.6.8 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 43918
+
+                                   RAW DATA                                   
+Ethernet Header
+Printing RAW data
+IP Header
+Printing RAW data
+ICMP Header
+Printing RAW data
+Payload
+Printing RAW data
 
 ===================================ICMP Packet===================================
 Ethernet Header
@@ -143,10 +248,25 @@ IP Header
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
     | Total Length           : 84 Bytes 
-    | Identification         : 64470 
+    | Identification         : 49447 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
     | Transport Protocol     : 1 
-    | Checksum               : 56121 
+    | Checksum               : 5609 
     | Source IP Address      : 172.31.241.110 
     | Destination IP Address : 192.2.6.8 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 31473
+
+                                   RAW DATA                                   
+Ethernet Header
+Printing RAW data
+IP Header
+Printing RAW data
+ICMP Header
+Printing RAW data
+Payload
+Printing RAW data

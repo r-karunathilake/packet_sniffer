@@ -1,5 +1,5 @@
 /*
-  This is a packet sniffer program created using the libpcap
+  This is a IPv4 packet sniffer program created using the libpcap
   library for low-level network access. The program is written and
   tested in Ubuntu.
 
@@ -13,14 +13,15 @@
 */
 
 #include <stdio.h>
-#include <string.h>		   // For strcpy() and memset() 
-#include <pcap.h>		   // Access copies of packets off the wire.
-#include <stdlib.h>		   // For exit()
-#include <netinet/in.h>	   // 'in_addr' structure declaration used by 'inet_ntoa()'
-#include <netinet/ether.h> // Provides 'ether_nota()' and 'ether_addr()'
-#include <arpa/inet.h>	   // Provides 'inet_ntoa()' declaration
-#include <net/ethernet.h>  // Provides ethernet header declaration
-#include <netinet/ip.h>	   // Provides IP header declaration
+#include <string.h>			 // For strcpy() and memset()
+#include <pcap.h>			 // Access copies of packets off the wire.
+#include <stdlib.h>			 // For exit()
+#include <netinet/in.h>		 // 'in_addr' structure declaration used by 'inet_ntoa()'
+#include <netinet/ether.h>	 // Provides 'ether_nota()' and 'ether_addr()'
+#include <arpa/inet.h>		 // Provides 'inet_ntoa()' declaration
+#include <net/ethernet.h>	 // Provides ethernet header declaration
+#include <netinet/ip.h>		 // Provides IP header declaration
+#include <netinet/ip_icmp.h> // Provides ICMP header declaration
 
 FILE *logFile = NULL;
 // Count the number of packets
@@ -37,6 +38,7 @@ void process_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 void log_ethernet_header(u_char *, const u_char *);
 void log_ip_header(u_char *, const u_char *);
 void log_icmp_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
+void log_raw_data(const u_char *, int);
 int get_ip_protocol(u_char *, const struct pcap_pkthdr *, const u_char *);
 u_int16_t get_eth_protocol(u_char *, const u_char *);
 
@@ -47,7 +49,7 @@ int main(int argc, char *argv[])
 	pcap_if_t *pDevice = NULL;			// A network interface
 	char *pDeviceName = NULL;			// The network interface name to be sniffed
 	char errorBuffer[PCAP_ERRBUF_SIZE]; // Error string of size 256
-	const char *ip_addr = NULL;		    // Dot notation IP address
+	const char *ip_addr = NULL;			// Dot notation IP address
 	const char *mask_addr = NULL;		// Dot notation mask address
 	bpf_u_int32 mask;					// Interface network mask
 	bpf_u_int32 ip;						// Interface IP
@@ -157,8 +159,8 @@ int main(int argc, char *argv[])
 	pcap_close(pHandle); // Close session
 	printf("Done\n");
 
-	printf("\n\nICMP: %d  IGMP: %d  TCP: %d  UDP: %d  Other: %d  Total: %d\n",
-		   icmp_count, igmp_count, tcp_count, udp_count, other_count, total);
+	printf("\n\nICMP: %d  IGMP: %d  TCP: %d  UDP: %d  Other: %d  Invalid: %d  Total: %d\n",
+		   icmp_count, igmp_count, tcp_count, udp_count, other_count, invalid_count, total);
 	exit(EXIT_SUCCESS);
 }
 
@@ -215,6 +217,77 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header,
 	}
 }
 
+void log_icmp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *packet)
+{
+	fprintf(logFile, "\n===================================ICMP Packet===================================\n");
+	log_ethernet_header(args, packet);
+	log_ip_header(args, packet);
+
+	// Parse the ICMP header
+	struct icmphdr *pICMPHeader = (struct icmphdr *)(packet + sizeof(struct ether_header) + sizeof(struct iphdr));
+
+	// See RFC 792
+	fprintf(logFile, "\n");
+	fprintf(logFile, "ICMP Header\n");
+	fprintf(logFile, "    | Type     : %u", pICMPHeader->type);
+
+	switch (pICMPHeader->type)
+	{
+	case ICMP_TIME_EXCEEDED:
+		fprintf(logFile, " (TTL Expired)\n");
+		break;
+
+	case ICMP_DEST_UNREACH:
+		fprintf(logFile, " (Destination Unreachable)\n");
+		break;
+
+	case ICMP_PARAMETERPROB:
+		fprintf(logFile, " (Parameter Problem)\n");
+		break;
+
+	case ICMP_SOURCE_QUENCH:
+		fprintf(logFile, " (Source Quench)\n");
+		break;
+
+	case ICMP_REDIRECT:
+		fprintf(logFile, " (Redirect)\n");
+		break;
+
+	case ICMP_ECHOREPLY:
+		fprintf(logFile, " (Echo Reply)\n");
+		break;
+
+	case ICMP_ECHO:
+		fprintf(logFile, " (Echo)\n");
+		break;
+
+	default:
+		fprintf(logFile, " (? Check RFC 792)\n");
+		break;
+	}
+
+	fprintf(logFile, "    | Code     : %u\n", pICMPHeader->code);
+	fprintf(logFile, "    | Checksum : %u\n", ntohs(pICMPHeader->checksum));
+
+	// Log raw packet data
+	fprintf(logFile, "\n                                   RAW DATA                                   \n");
+
+	fprintf(logFile, "Ethernet Header\n");
+	log_raw_data(packet, sizeof(struct ether_header));
+
+	fprintf(logFile, "IP Header\n");
+	const u_char *pIPHeaderStart = packet + sizeof(struct ether_header);
+	log_raw_data(pIPHeaderStart, sizeof(struct iphdr));
+
+	fprintf(logFile, "ICMP Header\n");
+	const u_char *pICMPHeaderStart = pIPHeaderStart + sizeof(struct iphdr);
+	log_raw_data(pICMPHeaderStart, sizeof(struct icmphdr));
+
+	fprintf(logFile, "Payload\n");
+	int totalHeaderLength = header->len - (sizeof(struct ether_header) + sizeof(struct iphdr) + sizeof(struct icmphdr));
+	log_raw_data(pICMPHeaderStart + sizeof(struct icmphdr), (header->len - totalHeaderLength));
+}
+
 uint16_t get_eth_protocol(u_char *args, const u_char *packet)
 {
 	struct ether_header *pEthernetHeader; // Declared in 'net/ethernet.h'
@@ -243,15 +316,6 @@ int get_ip_protocol(u_char *args, const struct pcap_pkthdr *header, const u_char
 
 	++total; // Valid IP packet detected
 	return (int)pIPHeader->protocol;
-}
-
-void log_icmp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *packet)
-{
-	fprintf(logFile, "\n===================================ICMP Packet===================================");
-	log_ethernet_header(args, packet);
-	log_ip_header(args, packet);
-
-	// fprintf(logFile, "\n*********************************************************************************");
 }
 
 void log_ethernet_header(u_char *args, const u_char *packet)
@@ -289,7 +353,7 @@ void log_ethernet_header(u_char *args, const u_char *packet)
 
 void log_ip_header(u_char *args, const u_char *packet)
 {
-	// Parse and log IPv4 header 
+	// Parse and log IPv4 header
 	struct iphdr *pIPHeader = (struct iphdr *)(packet + sizeof(struct ether_header));
 
 	// See RFC 791
@@ -313,10 +377,13 @@ void log_ip_header(u_char *args, const u_char *packet)
 	sourceAddr.s_addr = pIPHeader->saddr;
 	destAddr.s_addr = pIPHeader->daddr;
 
-	fprintf(logFile, "    | Source IP Address      : %s \n", inet_ntop(AF_INET, &sourceAddr, 
-	                                                                   writeBuffer, INET_ADDRSTRLEN));
-	fprintf(logFile, "    | Destination IP Address : %s \n", inet_ntop(AF_INET, &destAddr, 
-	                                                                   writeBuffer, INET_ADDRSTRLEN));
+	fprintf(logFile, "    | Source IP Address      : %s \n", inet_ntop(AF_INET, &sourceAddr, writeBuffer, INET_ADDRSTRLEN));
+	fprintf(logFile, "    | Destination IP Address : %s \n", inet_ntop(AF_INET, &destAddr, writeBuffer, INET_ADDRSTRLEN));
 }
 
+void log_raw_data(const u_char *pData, int dataSize)
+{
+	fprintf(logFile, "Printing RAW data\n");
+}
 
+// TODO: write a function for program use
