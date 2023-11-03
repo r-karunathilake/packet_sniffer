@@ -219,7 +219,7 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header,
 
 void log_icmp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *packet)
 {
-	fprintf(logFile, "\n===================================ICMP Packet===================================\n");
+	fprintf(logFile, "\n===================================ICMP Packet==================================\n");
 	log_ethernet_header(args, packet);
 	log_ip_header(args, packet);
 
@@ -326,27 +326,27 @@ void log_ethernet_header(u_char *args, const u_char *packet)
 	// Convert ethernet address to ASCII
 	fprintf(logFile, "\n");
 	fprintf(logFile, "Ethernet Header\n");
-	fprintf(logFile, "    | Destination MAC: %s \n", ether_ntoa((const struct ether_addr *)pEthernetHeader->ether_shost));
-	fprintf(logFile, "    | Source MAC     : %s \n", ether_ntoa((const struct ether_addr *)pEthernetHeader->ether_dhost));
+	fprintf(logFile, "    | Destination MAC : %s \n", ether_ntoa((const struct ether_addr *)pEthernetHeader->ether_shost));
+	fprintf(logFile, "    | Source MAC      : %s \n", ether_ntoa((const struct ether_addr *)pEthernetHeader->ether_dhost));
 
 	// Print the ethernet protocol type
 	const uint16_t protocol = ntohs(pEthernetHeader->ether_type);
 	switch (protocol)
 	{
 	case ETHERTYPE_IP: // IPv4 type
-		fprintf(logFile, "    | Protocol       : IP \n");
+		fprintf(logFile, "    | Protocol        : IP \n");
 		break;
 
 	case ETHERTYPE_ARP:
-		fprintf(logFile, "    | Protocol       : ARP \n");
+		fprintf(logFile, "    | Protocol        : ARP \n");
 		break;
 
 	case ETHERTYPE_REVARP:
-		fprintf(logFile, "    | Protocol       : RARP \n");
+		fprintf(logFile, "    | Protocol        : RARP \n");
 		break;
 
 	default: // Some other ethernet protocol. See 'net/ethernet.h'
-		fprintf(logFile, "    | Protocol       : ? (%d) \n", protocol);
+		fprintf(logFile, "    | Protocol        : ? (%d) \n", protocol);
 		break;
 	}
 }
@@ -383,7 +383,62 @@ void log_ip_header(u_char *args, const u_char *packet)
 
 void log_raw_data(const u_char *pData, int dataSize)
 {
-	fprintf(logFile, "Printing RAW data\n");
+	for (int i = 0; i < dataSize; i++)
+	{
+		// If atleast one line of hex is fully logged
+		if (i != 0 && i % 16 == 0)
+		{
+			fprintf(logFile, "      ");
+			// Print the data in ASCII characters
+			for (int j = i - 16; j < i; j++)
+			{
+				// Valid ASCII character
+				if (pData[j] >= 32 && pData[j] <= 126)
+				{
+					fprintf(logFile, "%c", pData[j]);
+				}
+				else
+				{
+					fprintf(logFile, ".");
+				}
+			}
+			fprintf(logFile, "\n");
+		}
+
+		// Tab right each hex line
+		if (i % 16 == 0)
+		{
+			fprintf(logFile, "\t");
+		}
+		fprintf(logFile, " %02X", (unsigned int)pData[i]); // Log data in hex
+
+		// Add a new line at the end of logging
+		if (i == dataSize - 1)
+		{
+			/* Line up the ASCII character data for the last data row
+			by adding spaces for the remaning hex characters in the last row. */
+			for (int j = 0; j < 15 - i % 16; j++)
+			{
+				fprintf(logFile, "   "); // 3 spaces
+			}
+
+			fprintf(logFile, "      ");
+			// Print the data in ASCII characters for the last row of data
+			for (int j = i - 16; j < i; j++)
+			{
+				// Valid ASCII character
+				if (pData[j] >= 32 && pData[j] <= 126)
+				{
+					fprintf(logFile, "%c", pData[j]);
+				}
+				else
+				{
+					fprintf(logFile, ".");
+				}
+			}
+			fprintf(logFile, "\n");
+		}
+	}
 }
 
-// TODO: write a function for program use
+// TODO: write a function for program usage
