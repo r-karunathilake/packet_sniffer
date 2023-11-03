@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
 	logFile = fopen("log.txt", "w");
 	if (logFile == NULL)
 	{
-		printf("WARNING: Unsuccessful in creating log file!");
+		printf("WARNING: * Unsuccessful in creating log file!");
 	}
 
 	if (argc > 2)
@@ -198,12 +198,17 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header,
 
 		case -1: // Invalid packet
 			++invalid_count;
-			printf("Received Invalid packet! Dumping raw data to log");
+			printf("Warning: * Received invalid packet! Dumping raw data to log.");
+			fprintf(logFile, "\n===================================INVALID Packet==================================\n");
+			fprintf(logFile, "\n                                   RAW DATA                                   \n");
+			log_raw_data(packet, header->len);
 			break;
 
 		default: // Another protocol like Telnet
 			++other_count;
-			printf("Received other packet!\n");
+			fprintf(logFile, "\n===================================UNKNOWN Protocol==================================\n");
+			fprintf(logFile, "\n                                   RAW DATA                                   \n");
+			log_raw_data(packet, header->len);
 			break;
 		}
 	}
