@@ -38,6 +38,7 @@ void process_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 void log_ethernet_header(u_char *, const u_char *);
 void log_ip_header(u_char *, const u_char *);
 void log_icmp_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
+void log_tcp_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 void log_raw_data(const u_char *, int);
 int get_ip_protocol(u_char *, const struct pcap_pkthdr *, const u_char *);
 u_int16_t get_eth_protocol(u_char *, const u_char *);
@@ -188,7 +189,7 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header,
 
 		case 6: // TCP protocol
 			++tcp_count;
-			printf("Received TCP packet!\n");
+			log_tcp_packet(args, header, packet);
 			break;
 
 		case 17: // UDP protocol
@@ -207,6 +208,8 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header,
 		default: // Another protocol like Telnet
 			++other_count;
 			fprintf(logFile, "\n===================================UNKNOWN Protocol==================================\n");
+			log_ethernet_header(args, packet);
+			log_ip_header(args, packet);
 			fprintf(logFile, "\n                                   RAW DATA                                   \n");
 			log_raw_data(packet, header->len);
 			break;
@@ -291,6 +294,11 @@ void log_icmp_packet(u_char *args, const struct pcap_pkthdr *header, const u_cha
 	fprintf(logFile, "Payload\n");
 	int totalHeaderLength = header->len - (sizeof(struct ether_header) + sizeof(struct iphdr) + sizeof(struct icmphdr));
 	log_raw_data(pICMPHeaderStart + sizeof(struct icmphdr), (header->len - totalHeaderLength));
+}
+
+void log_tcp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *packet)
+{
+	printf("Logging TCP packet!");
 }
 
 uint16_t get_eth_protocol(u_char *args, const u_char *packet)
