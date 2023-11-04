@@ -22,6 +22,7 @@
 #include <net/ethernet.h>	 // Provides ethernet header declaration
 #include <netinet/ip.h>		 // Provides IP header declaration
 #include <netinet/ip_icmp.h> // Provides ICMP header declaration
+#include <netinet/tcp.h>	 //
 
 FILE *logFile = NULL;
 // Count the number of packets
@@ -233,6 +234,8 @@ void log_icmp_packet(u_char *args, const struct pcap_pkthdr *header, const u_cha
 
 	// Parse the ICMP header
 	struct icmphdr *pICMPHeader = (struct icmphdr *)(packet + sizeof(struct ether_header) + sizeof(struct iphdr));
+	struct iphdr *pIPHeader = (struct iphdr *)(packet + sizeof(struct ether_header));
+	unsigned int ipHeaderLength = pIPHeader->ihl * 4;
 
 	// See RFC 792
 	fprintf(logFile, "\n");
@@ -285,20 +288,64 @@ void log_icmp_packet(u_char *args, const struct pcap_pkthdr *header, const u_cha
 
 	fprintf(logFile, "IP Header\n");
 	const u_char *pIPHeaderStart = packet + sizeof(struct ether_header);
-	log_raw_data(pIPHeaderStart, sizeof(struct iphdr));
+	log_raw_data(pIPHeaderStart, ipHeaderLength);
 
 	fprintf(logFile, "ICMP Header\n");
-	const u_char *pICMPHeaderStart = pIPHeaderStart + sizeof(struct iphdr);
+	const u_char *pICMPHeaderStart = pIPHeaderStart + ipHeaderLength;
 	log_raw_data(pICMPHeaderStart, sizeof(struct icmphdr));
 
 	fprintf(logFile, "Payload\n");
-	int totalHeaderLength = header->len - (sizeof(struct ether_header) + sizeof(struct iphdr) + sizeof(struct icmphdr));
+	int totalHeaderLength = sizeof(struct ether_header) + ipHeaderLength + sizeof(struct icmphdr);
 	log_raw_data(pICMPHeaderStart + sizeof(struct icmphdr), (header->len - totalHeaderLength));
 }
 
 void log_tcp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *packet)
 {
-	printf("Logging TCP packet!");
+	fprintf(logFile, "\n===================================TCP Packet==================================\n");
+	log_ethernet_header(args, packet);
+	log_ip_header(args, packet);
+
+	// Parse the TCP header
+	struct tcphdr *pTCPHeader = (struct tcphdr *)(packet + sizeof(struct ether_header) + sizeof(struct iphdr));
+	struct iphdr *pIPHeader = (struct iphdr *)(packet + sizeof(struct ether_header));
+	unsigned int ipHeaderLength = pIPHeader->ihl * 4;
+	u_int16_t tcpHeaderLength = pTCPHeader->doff * 4;
+
+	// See RFC 792
+	fprintf(logFile, "\n");
+	fprintf(logFile, "TCP Header\n");
+	fprintf(logFile, "    | Source Port            : %u \n", ntohs(pTCPHeader->source));
+	fprintf(logFile, "    | Destination Port       : %u \n", ntohs(pTCPHeader->dest));
+	fprintf(logFile, "    | Sequence Number        : %u \n", ntohl(pTCPHeader->seq));
+	fprintf(logFile, "    | Acknowledgment Number  : %u \n", ntohl(pTCPHeader->ack_seq));
+	fprintf(logFile, "    | Header Length          : %u Bytes \n", tcpHeaderLength);
+	fprintf(logFile, "    | Urgent Flag            : %u \n", pTCPHeader->urg);
+	fprintf(logFile, "    | Acknowledgment Flag    : %u \n", pTCPHeader->ack);
+	fprintf(logFile, "    | Push Flag              : %u \n", pTCPHeader->psh);
+	fprintf(logFile, "    | Reset Flag             : %u \n", pTCPHeader->rst);
+	fprintf(logFile, "    | Synchronize Flag       : %u \n", pTCPHeader->syn);
+	fprintf(logFile, "    | Finish Flag            : %u \n", pTCPHeader->fin);
+	fprintf(logFile, "    | Window                 : %u \n", ntohs(pTCPHeader->window));
+	fprintf(logFile, "    | Checksum               : %u \n", ntohs(pTCPHeader->check));
+	fprintf(logFile, "    | Urgent Pointer         : %u \n", ntohs(pTCPHeader->urg_ptr));
+
+	// Log raw packet data
+	fprintf(logFile, "\n                                   RAW DATA                                   \n");
+
+	fprintf(logFile, "Ethernet Header\n");
+	log_raw_data(packet, sizeof(struct ether_header));
+
+	fprintf(logFile, "IP Header\n");
+	const u_char *pIPHeaderStart = packet + sizeof(struct ether_header);
+	log_raw_data(pIPHeaderStart, ipHeaderLength);
+
+	fprintf(logFile, "TCP Header\n");
+	const u_char *pTCPHeaderStart = pIPHeaderStart + ipHeaderLength;
+	log_raw_data(pTCPHeaderStart, tcpHeaderLength);
+
+	fprintf(logFile, "Payload\n");
+	int totalHeaderLength = sizeof(struct ether_header) + ipHeaderLength + tcpHeaderLength;
+	log_raw_data(pTCPHeaderStart + tcpHeaderLength, header->len - totalHeaderLength);
 }
 
 uint16_t get_eth_protocol(u_char *args, const u_char *packet)
@@ -339,8 +386,8 @@ void log_ethernet_header(u_char *args, const u_char *packet)
 	// Convert ethernet address to ASCII
 	fprintf(logFile, "\n");
 	fprintf(logFile, "Ethernet Header\n");
-	fprintf(logFile, "    | Destination MAC : %s \n", ether_ntoa((const struct ether_addr *)pEthernetHeader->ether_shost));
-	fprintf(logFile, "    | Source MAC      : %s \n", ether_ntoa((const struct ether_addr *)pEthernetHeader->ether_dhost));
+	fprintf(logFile, "    | Destination MAC : %s \n", ether_ntoa((const struct ether_addr *)pEthernetHeader->ether_dhost));
+	fprintf(logFile, "    | Source MAC      : %s \n", ether_ntoa((const struct ether_addr *)pEthernetHeader->ether_shost));
 
 	// Print the ethernet protocol type
 	const uint16_t protocol = ntohs(pEthernetHeader->ether_type);
