@@ -180,42 +180,42 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header,
         int ipProtocol = get_ip_protocol(args, header, packet);
         switch (ipProtocol) // See RFC 790 for protocol-value mapping
         {
-        case 1: // ICMP protocol
-            ++icmp_count;
-            log_icmp_packet(args, header, packet);
-            break;
+            case 1: // ICMP protocol
+                ++icmp_count;
+                log_icmp_packet(args, header, packet);
+                break;
 
-        case 2: // IGMP protocol
-            ++igmp_count;
-            printf("Received IGMP packet!\n");
-            break;
+            case 2: // IGMP protocol
+                ++igmp_count;
+                printf("Received IGMP packet!\n");
+                break;
 
-        case 6: // TCP protocol
-            ++tcp_count;
-            log_tcp_packet(args, header, packet);
-            break;
+            case 6: // TCP protocol
+                ++tcp_count;
+                log_tcp_packet(args, header, packet);
+                break;
 
-        case 17: // UDP protocol
-            ++udp_count;
-            log_udp_packet(args, header, packet);
-            break;
+            case 17: // UDP protocol
+                ++udp_count;
+                log_udp_packet(args, header, packet);
+                break;
 
-        case -1: // Invalid IP packet
-            ++invalid_count;
-            printf("Warning: * Received invalid packet! Dumping raw data to log.");
-            fprintf(logFile, "\n===================================INVALID Packet==================================\n");
-            fprintf(logFile, "\n                                   RAW DATA                                   \n");
-            log_raw_data(packet, header->len);
-            break;
+            case -1: // Invalid IP packet
+                ++invalid_count;
+                printf("Warning: * Received invalid packet! Dumping raw data to log.");
+                fprintf(logFile, "\n===================================INVALID Packet==================================\n");
+                fprintf(logFile, "\n                                   RAW DATA                                   \n");
+                log_raw_data(packet, header->len);
+                break;
 
-        default: // Another protocol like Telnet
-            ++other_count;
-            fprintf(logFile, "\n===================================UNKNOWN Protocol: %d==================================\n", ipProtocol);
-            log_ethernet_header(args, packet);
-            log_ip_header(args, packet);
-            fprintf(logFile, "\n                                   RAW DATA                                   \n");
-            log_raw_data(packet, header->len);
-            break;
+            default: // Another protocol like Telnet
+                ++other_count;
+                fprintf(logFile, "\n===================================UNKNOWN Protocol: %d==================================\n", ipProtocol);
+                log_ethernet_header(args, packet);
+                log_ip_header(args, packet);
+                fprintf(logFile, "\n                                   RAW DATA                                   \n");
+                log_raw_data(packet, header->len);
+                break;
         }
     }
     else if (packetType == ETHERTYPE_ARP)
@@ -246,37 +246,37 @@ void log_icmp_packet(u_char *args, const struct pcap_pkthdr *header, const u_cha
 
     switch (pICMPHeader->type)
     {
-    case ICMP_TIME_EXCEEDED:
-        fprintf(logFile, " (TTL Expired)\n");
-        break;
+        case ICMP_TIME_EXCEEDED:
+            fprintf(logFile, " (TTL Expired)\n");
+            break;
 
-    case ICMP_DEST_UNREACH:
-        fprintf(logFile, " (Destination Unreachable)\n");
-        break;
+        case ICMP_DEST_UNREACH:
+            fprintf(logFile, " (Destination Unreachable)\n");
+            break;
 
-    case ICMP_PARAMETERPROB:
-        fprintf(logFile, " (Parameter Problem)\n");
-        break;
+        case ICMP_PARAMETERPROB:
+            fprintf(logFile, " (Parameter Problem)\n");
+            break;
 
-    case ICMP_SOURCE_QUENCH:
-        fprintf(logFile, " (Source Quench)\n");
-        break;
+        case ICMP_SOURCE_QUENCH:
+            fprintf(logFile, " (Source Quench)\n");
+            break;
 
-    case ICMP_REDIRECT:
-        fprintf(logFile, " (Redirect)\n");
-        break;
+        case ICMP_REDIRECT:
+            fprintf(logFile, " (Redirect)\n");
+            break;
 
-    case ICMP_ECHOREPLY:
-        fprintf(logFile, " (Echo Reply)\n");
-        break;
+        case ICMP_ECHOREPLY:
+            fprintf(logFile, " (Echo Reply)\n");
+            break;
 
-    case ICMP_ECHO:
-        fprintf(logFile, " (Echo)\n");
-        break;
+        case ICMP_ECHO:
+            fprintf(logFile, " (Echo)\n");
+            break;
 
-    default:
-        fprintf(logFile, " (? Check RFC 792)\n");
-        break;
+        default:
+            fprintf(logFile, " (? Check RFC 792)\n");
+            break;
     }
 
     fprintf(logFile, "    | Code     : %u\n", pICMPHeader->code);
@@ -399,21 +399,21 @@ void log_ethernet_header(u_char *args, const u_char *packet)
     const uint16_t protocol = ntohs(pEthernetHeader->ether_type);
     switch (protocol)
     {
-    case ETHERTYPE_IP: // IPv4 type
-        fprintf(logFile, "    | Protocol        : IP \n");
-        break;
+        case ETHERTYPE_IP: // IPv4 type
+            fprintf(logFile, "    | Protocol        : IP \n");
+            break;
 
-    case ETHERTYPE_ARP:
-        fprintf(logFile, "    | Protocol        : ARP \n");
-        break;
+        case ETHERTYPE_ARP:
+            fprintf(logFile, "    | Protocol        : ARP \n");
+            break;
 
-    case ETHERTYPE_REVARP:
-        fprintf(logFile, "    | Protocol        : RARP \n");
-        break;
+        case ETHERTYPE_REVARP:
+            fprintf(logFile, "    | Protocol        : RARP \n");
+            break;
 
-    default: // Some other ethernet protocol. See 'net/ethernet.h'
-        fprintf(logFile, "    | Protocol        : ? (%d) \n", protocol);
-        break;
+        default: // Some other ethernet protocol. See 'net/ethernet.h'
+            fprintf(logFile, "    | Protocol        : ? (%d) \n", protocol);
+            break;
     }
 }
 
