@@ -386,6 +386,7 @@ void log_udp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char
     int totalHeaderLength = sizeof(struct ether_header) + ipHeaderLength + sizeof(pUDPHeader);
     log_raw_data(pUDPHeaderStart + sizeof(pUDPHeader), header->len - totalHeaderLength);
 }
+
 uint16_t get_eth_protocol(u_char *args, const u_char *packet)
 {
     struct ether_header *pEthernetHeader; // Declared in 'net/ethernet.h'
