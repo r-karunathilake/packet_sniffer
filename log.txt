@@ -1,5 +1,5 @@
 
-===================================ICMP Packet==================================
+===================================UDP Packet==================================
 
 Ethernet Header
     | Destination MAC : 0:15:5d:99:a:bc 
@@ -10,35 +10,35 @@ IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
-    | Identification         : 60880 
+    | Total Length           : 76 Bytes 
+    | Identification         : 34695 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
-    | Transport Protocol     : 1 
-    | Checksum               : 60738 
+    | Transport Protocol     : 17 
+    | Checksum               : 31082 
     | Source IP Address      : 172.31.241.110 
-    | Destination IP Address : 192.1.2.6 
+    | Destination IP Address : 172.31.240.1 
 
-ICMP Header
-    | Type     : 8 (Echo)
-    | Code     : 0
-    | Checksum : 26726
+UDP Header
+    | Source Port            : 53134 
+    | Destination Port       : 53 
+    | Length                 : 56 Bytes 
+    | Checksum               : 14841 
 
                                    RAW DATA                                   
 Ethernet Header
 	 00 15 5D 99 0A BC 00 15 5D D5 4A CD 08 00            .....].....].J..
 IP Header
-	 45 00 00 54 ED D0 40 00 40 01 ED 42 AC 1F F1 6E      E..T..@.@..B...n
-	 C0 01 02 06                                          T..@.@..B...n...
-ICMP Header
-	 08 00 68 66 00 25 00 39                              B...n......hf.%.
+	 45 00 00 4C 87 87 40 00 40 11 79 6A AC 1F F1 6E      E..L..@.@.yj...n
+	 AC 1F F0 01                                          L..@.@.yj...n...
+UDP Header
+	 CF 8E 00 35 00 38 39 F9                              j...n.......5.89
 Payload
-	 E6 F0 45 65 00 00 00 00 A4 12 00 00 00 00 00 00      ..Ee............
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+	 E6 0A 01 00 00 01 00 00 00 00 00 00 07 70 72 69      .............pri
+	 76 61 74 65 0E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
+	 65 6C 64 04 63 69 72 61 02 63 61 00 00 01 00 01      ield.cira.ca....
 
-===================================ICMP Packet==================================
+===================================UDP Packet==================================
 
 Ethernet Header
     | Destination MAC : 0:15:5d:99:a:bc 
@@ -49,30 +49,73 @@ IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
-    | Identification         : 60975 
+    | Total Length           : 76 Bytes 
+    | Identification         : 34696 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
-    | Transport Protocol     : 1 
-    | Checksum               : 60643 
+    | Transport Protocol     : 17 
+    | Checksum               : 31081 
     | Source IP Address      : 172.31.241.110 
-    | Destination IP Address : 192.1.2.6 
+    | Destination IP Address : 172.31.240.1 
 
-ICMP Header
-    | Type     : 8 (Echo)
-    | Code     : 0
-    | Checksum : 47305
+UDP Header
+    | Source Port            : 53134 
+    | Destination Port       : 53 
+    | Length                 : 56 Bytes 
+    | Checksum               : 14841 
 
                                    RAW DATA                                   
 Ethernet Header
 	 00 15 5D 99 0A BC 00 15 5D D5 4A CD 08 00            .....].....].J..
 IP Header
-	 45 00 00 54 EE 2F 40 00 40 01 EC E3 AC 1F F1 6E      E..T./@.@......n
-	 C0 01 02 06                                          T./@.@......n...
-ICMP Header
-	 08 00 B8 C9 00 25 00 3A                              ....n.........%.
+	 45 00 00 4C 87 88 40 00 40 11 79 69 AC 1F F1 6E      E..L..@.@.yi...n
+	 AC 1F F0 01                                          L..@.@.yi...n...
+UDP Header
+	 CF 8E 00 35 00 38 39 F9                              i...n.......5.89
 Payload
-	 E7 F0 45 65 00 00 00 00 52 AE 00 00 00 00 00 00      ..Ee....R.......
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+	 66 0E 01 00 00 01 00 00 00 00 00 00 07 70 72 69      f............pri
+	 76 61 74 65 0E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
+	 65 6C 64 04 63 69 72 61 02 63 61 00 00 1C 00 01      ield.cira.ca....
+
+===================================UDP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:d5:4a:cd 
+    | Source MAC      : 0:15:5d:99:a:bc 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 138 Bytes 
+    | Identification         : 31183 
+    | Fragment Offset        : 0 Bytes 
+    | Time to Live           : 128 
+    | Transport Protocol     : 17 
+    | Checksum               : 34532 
+    | Source IP Address      : 172.31.240.1 
+    | Destination IP Address : 172.31.241.110 
+
+UDP Header
+    | Source Port            : 53 
+    | Destination Port       : 53134 
+    | Length                 : 118 Bytes 
+    | Checksum               : 48868 
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D D5 4A CD 00 15 5D 99 0A BC 08 00            .....].J...]....
+IP Header
+	 45 00 00 8A 79 CF 00 00 80 11 86 E4 AC 1F F0 01      E...y...........
+	 AC 1F F1 6E                                          .y..............
+UDP Header
+	 00 35 CF 8E 00 76 BE E4                              ........n.5...v.
+Payload
+	 E6 0A 81 00 00 01 00 02 00 00 00 00 07 70 72 69      .............pri
+	 76 61 74 65 0E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
+	 65 6C 64 04 63 69 72 61 02 63 61 00 00 01 00 01      eld.cira.ca.....
+	 07 70 72 69 76 61 74 65 0E 63 61 6E 61 64 69 61      .private.canadia
+	 6E 73 68 69 65 6C 64 04 63 69 72 61 02 63 61 00      nshield.cira.ca.
+	 00 01 00 01 00 00 00 00 00 04 95 70 79 0A C0 30      ...........py..0
+	 00 01 00 01 00 00 00 00 00 04 95 70 7A 0A            ..0...........pz

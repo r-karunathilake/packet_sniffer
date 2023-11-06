@@ -13,9 +13,9 @@
 */
 
 #include <stdio.h>
-#include <string.h>			 // For strcpy() and memset()
-#include <pcap.h>			 // Access copies of packets off the wire.
-#include <stdlib.h>			 // For exit()
+#include <string.h>          // For strcpy() and memset()
+#include <pcap.h>            // Access copies of packets off the wire.
+#include <stdlib.h>          // For exit()
 #include <netinet/in.h>		 // 'in_addr' structure declaration used by 'inet_ntoa()'
 #include <netinet/ether.h>	 // Provides 'ether_nota()' and 'ether_addr()'
 #include <arpa/inet.h>		 // Provides 'inet_ntoa()' declaration
@@ -48,17 +48,17 @@ void log_raw_data(const u_char *, int);
 
 int main(int argc, char *argv[])
 {
-    pcap_t *pHandle;					// Session handle
+    pcap_t *pHandle;                    // Session handle
     pcap_if_t *pAllDevices = NULL;		// List of network interfaces
     pcap_if_t *pDevice = NULL;			// A network interface
     char *pDeviceName = NULL;			// The network interface name to be sniffed
     char errorBuffer[PCAP_ERRBUF_SIZE]; // Error string of size 256
     const char *ip_addr = NULL;			// Dot notation IP address
     const char *mask_addr = NULL;		// Dot notation mask address
-    bpf_u_int32 mask;					// Interface network mask
-    bpf_u_int32 ip;						// Interface IP
+    bpf_u_int32 mask;                   // Interface network mask
+    bpf_u_int32 ip;                     // Interface IP
     struct bpf_program filter;			// Compiled filter structure
-    u_char *callbackArgs;				// Arguments for 'process_packet()'
+    u_char *callbackArgs;               // Arguments for 'process_packet()'
 
     if (argc < 2)
     {
@@ -313,7 +313,7 @@ void log_tcp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char
     unsigned int ipHeaderLength = pIPHeader->ihl * 4;
     u_int16_t tcpHeaderLength = pTCPHeader->doff * 4;
 
-    // See RFC 792
+    // See RFC 793
     fprintf(logFile, "\n");
     fprintf(logFile, "TCP Header\n");
     fprintf(logFile, "    | Source Port            : %u \n", ntohs(pTCPHeader->source));
@@ -352,7 +352,39 @@ void log_tcp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char
 
 void log_udp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *packet)
 {
-    printf("Parsing UDP packet\n");
+    fprintf(logFile, "\n===================================UDP Packet==================================\n");
+    log_ethernet_header(args, packet);
+    log_ip_header(args, packet);
+
+    // Parse the UDP header
+    struct udphdr *pUDPHeader = (struct udphdr *)(packet + sizeof(struct ether_header) + sizeof(struct iphdr));
+    struct iphdr *pIPHeader = (struct iphdr *)(packet + sizeof(struct ether_header));
+    unsigned int ipHeaderLength = pIPHeader->ihl * 4;
+
+    // See RFC 768
+    fprintf(logFile, "\nUDP Header\n");
+    fprintf(logFile, "    | Source Port            : %u \n", ntohs(pUDPHeader->source));
+    fprintf(logFile, "    | Destination Port       : %u \n", ntohs(pUDPHeader->dest));
+    fprintf(logFile, "    | Length                 : %u Bytes \n", ntohs(pUDPHeader->len));
+    fprintf(logFile, "    | Checksum               : %u \n", ntohs(pUDPHeader->check));
+
+    // Log raw packet data
+    fprintf(logFile, "\n                                   RAW DATA                                   \n");
+
+    fprintf(logFile, "Ethernet Header\n");
+    log_raw_data(packet, sizeof(struct ether_header));
+
+    fprintf(logFile, "IP Header\n");
+    const u_char *pIPHeaderStart = packet + sizeof(struct ether_header);
+    log_raw_data(pIPHeaderStart, ipHeaderLength);
+
+    fprintf(logFile, "UDP Header\n");
+    const u_char *pUDPHeaderStart = pIPHeaderStart + ipHeaderLength;
+    log_raw_data(pUDPHeaderStart, sizeof(pUDPHeader));
+
+    fprintf(logFile, "Payload\n");
+    int totalHeaderLength = sizeof(struct ether_header) + ipHeaderLength + sizeof(pUDPHeader);
+    log_raw_data(pUDPHeaderStart + sizeof(pUDPHeader), header->len - totalHeaderLength);
 }
 uint16_t get_eth_protocol(u_char *args, const u_char *packet)
 {
