@@ -22,7 +22,8 @@
 #include <net/ethernet.h>	 // Provides ethernet header declaration
 #include <netinet/ip.h>		 // Provides IP header declaration
 #include <netinet/ip_icmp.h> // Provides ICMP header declaration
-#include <netinet/tcp.h>	 //
+#include <netinet/tcp.h>	 // Provides TCP header declaration
+#include <netinet/udp.h>	 // Provides UDP header declaration
 
 FILE *logFile = NULL;
 // Count the number of packets
@@ -35,14 +36,15 @@ static int other_count = 0;
 static int invalid_count = 0;
 
 // Function prototypes
-void process_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
-void log_ethernet_header(u_char *, const u_char *);
-void log_ip_header(u_char *, const u_char *);
 void log_icmp_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
+void log_udp_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 void log_tcp_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
-void log_raw_data(const u_char *, int);
+void process_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 int get_ip_protocol(u_char *, const struct pcap_pkthdr *, const u_char *);
 u_int16_t get_eth_protocol(u_char *, const u_char *);
+void log_ethernet_header(u_char *, const u_char *);
+void log_ip_header(u_char *, const u_char *);
+void log_raw_data(const u_char *, int);
 
 int main(int argc, char *argv[])
 {
@@ -195,10 +197,10 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header,
 
 		case 17: // UDP protocol
 			++udp_count;
-			printf("Received UDP packet!\n");
+			log_udp_packet(args, header, packet);
 			break;
 
-		case -1: // Invalid packet
+		case -1: // Invalid IP packet
 			++invalid_count;
 			printf("Warning: * Received invalid packet! Dumping raw data to log.");
 			fprintf(logFile, "\n===================================INVALID Packet==================================\n");
@@ -208,7 +210,7 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header,
 
 		default: // Another protocol like Telnet
 			++other_count;
-			fprintf(logFile, "\n===================================UNKNOWN Protocol==================================\n");
+			fprintf(logFile, "\n===================================UNKNOWN Protocol: %d==================================\n", ipProtocol);
 			log_ethernet_header(args, packet);
 			log_ip_header(args, packet);
 			fprintf(logFile, "\n                                   RAW DATA                                   \n");
@@ -348,6 +350,10 @@ void log_tcp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char
 	log_raw_data(pTCPHeaderStart + tcpHeaderLength, header->len - totalHeaderLength);
 }
 
+void log_udp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *packet)
+{
+	printf("Parsing UDP packet\n");
+}
 uint16_t get_eth_protocol(u_char *args, const u_char *packet)
 {
 	struct ether_header *pEthernetHeader; // Declared in 'net/ethernet.h'
