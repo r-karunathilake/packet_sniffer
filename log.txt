@@ -1,8 +1,8 @@
 
-===================================UDP Packet==================================
+===================================ICMP Packet==================================
 
 Ethernet Header
-    | Destination MAC : 0:15:5d:99:a:bc 
+    | Destination MAC : 0:15:5d:d5:41:88 
     | Source MAC      : 0:15:5d:d5:4a:cd 
     | Protocol        : IP 
 
@@ -10,112 +10,420 @@ IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 76 Bytes 
-    | Identification         : 34695 
+    | Total Length           : 84 Bytes 
+    | Identification         : 10612 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
-    | Transport Protocol     : 17 
-    | Checksum               : 31082 
+    | Transport Protocol     : 1 
+    | Checksum               : 49991 
     | Source IP Address      : 172.31.241.110 
-    | Destination IP Address : 172.31.240.1 
+    | Destination IP Address : 142.251.33.100 
 
-UDP Header
-    | Source Port            : 53134 
-    | Destination Port       : 53 
-    | Length                 : 56 Bytes 
-    | Checksum               : 14841 
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 27432
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D 99 0A BC 00 15 5D D5 4A CD 08 00            .....].....].J..
+	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
 IP Header
-	 45 00 00 4C 87 87 40 00 40 11 79 6A AC 1F F1 6E      E..L..@.@.yj...n
-	 AC 1F F0 01                                          L..@.@.yj...n...
-UDP Header
-	 CF 8E 00 35 00 38 39 F9                              j...n.......5.89
+	 45 00 00 54 29 74 40 00 40 01 C3 47 AC 1F F1 6E      E..T)t@.@..G...n
+	 8E FB 21 64                                          T)t@.@..G...n..!
+ICMP Header
+	 08 00 6B 28 00 2C 00 01                              G...n..!d..k(.,.
 Payload
-	 E6 0A 01 00 00 01 00 00 00 00 00 00 07 70 72 69      .............pri
-	 76 61 74 65 0E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
-	 65 6C 64 04 63 69 72 61 02 63 61 00 00 01 00 01      ield.cira.ca....
+	 25 A8 49 65 00 00 00 00 5D CA 01 00 00 00 00 00      %.Ie....].......
+	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
+	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
+	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
 
-===================================UDP Packet==================================
-
-Ethernet Header
-    | Destination MAC : 0:15:5d:99:a:bc 
-    | Source MAC      : 0:15:5d:d5:4a:cd 
-    | Protocol        : IP 
-
-IP Header
-    | IP Version             : 4 
-    | Header Length          : 20 Bytes 
-    | Type of Service        : 0 
-    | Total Length           : 76 Bytes 
-    | Identification         : 34696 
-    | Fragment Offset        : 16384 Bytes 
-    | Time to Live           : 64 
-    | Transport Protocol     : 17 
-    | Checksum               : 31081 
-    | Source IP Address      : 172.31.241.110 
-    | Destination IP Address : 172.31.240.1 
-
-UDP Header
-    | Source Port            : 53134 
-    | Destination Port       : 53 
-    | Length                 : 56 Bytes 
-    | Checksum               : 14841 
-
-                                   RAW DATA                                   
-Ethernet Header
-	 00 15 5D 99 0A BC 00 15 5D D5 4A CD 08 00            .....].....].J..
-IP Header
-	 45 00 00 4C 87 88 40 00 40 11 79 69 AC 1F F1 6E      E..L..@.@.yi...n
-	 AC 1F F0 01                                          L..@.@.yi...n...
-UDP Header
-	 CF 8E 00 35 00 38 39 F9                              i...n.......5.89
-Payload
-	 66 0E 01 00 00 01 00 00 00 00 00 00 07 70 72 69      f............pri
-	 76 61 74 65 0E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
-	 65 6C 64 04 63 69 72 61 02 63 61 00 00 1C 00 01      ield.cira.ca....
-
-===================================UDP Packet==================================
+===================================ICMP Packet==================================
 
 Ethernet Header
     | Destination MAC : 0:15:5d:d5:4a:cd 
-    | Source MAC      : 0:15:5d:99:a:bc 
+    | Source MAC      : 0:15:5d:d5:41:88 
     | Protocol        : IP 
 
 IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 138 Bytes 
-    | Identification         : 31183 
+    | Total Length           : 84 Bytes 
+    | Identification         : 0 
     | Fragment Offset        : 0 Bytes 
-    | Time to Live           : 128 
-    | Transport Protocol     : 17 
-    | Checksum               : 34532 
-    | Source IP Address      : 172.31.240.1 
+    | Time to Live           : 117 
+    | Transport Protocol     : 1 
+    | Checksum               : 63419 
+    | Source IP Address      : 142.251.33.100 
     | Destination IP Address : 172.31.241.110 
 
-UDP Header
-    | Source Port            : 53 
-    | Destination Port       : 53134 
-    | Length                 : 118 Bytes 
-    | Checksum               : 48868 
+ICMP Header
+    | Type     : 0 (Echo Reply)
+    | Code     : 0
+    | Checksum : 29480
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D D5 4A CD 00 15 5D 99 0A BC 08 00            .....].J...]....
+	 00 15 5D D5 4A CD 00 15 5D D5 41 88 08 00            .....].J...].A..
 IP Header
-	 45 00 00 8A 79 CF 00 00 80 11 86 E4 AC 1F F0 01      E...y...........
-	 AC 1F F1 6E                                          .y..............
-UDP Header
-	 00 35 CF 8E 00 76 BE E4                              ........n.5...v.
+	 45 00 00 54 00 00 00 00 75 01 F7 BB 8E FB 21 64      E..T....u.....!d
+	 AC 1F F1 6E                                          T....u.....!d...
+ICMP Header
+	 00 00 73 28 00 2C 00 01                              ...!d...n..s(.,.
 Payload
-	 E6 0A 81 00 00 01 00 02 00 00 00 00 07 70 72 69      .............pri
-	 76 61 74 65 0E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
-	 65 6C 64 04 63 69 72 61 02 63 61 00 00 01 00 01      eld.cira.ca.....
-	 07 70 72 69 76 61 74 65 0E 63 61 6E 61 64 69 61      .private.canadia
-	 6E 73 68 69 65 6C 64 04 63 69 72 61 02 63 61 00      nshield.cira.ca.
-	 00 01 00 01 00 00 00 00 00 04 95 70 79 0A C0 30      ...........py..0
-	 00 01 00 01 00 00 00 00 00 04 95 70 7A 0A            ..0...........pz
+	 25 A8 49 65 00 00 00 00 5D CA 01 00 00 00 00 00      %.Ie....].......
+	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
+	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
+	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+
+===================================ICMP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:d5:41:88 
+    | Source MAC      : 0:15:5d:d5:4a:cd 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 10689 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 49914 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 142.251.33.100 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 42016
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
+IP Header
+	 45 00 00 54 29 C1 40 00 40 01 C2 FA AC 1F F1 6E      E..T).@.@......n
+	 8E FB 21 64                                          T).@.@......n..!
+ICMP Header
+	 08 00 A4 20 00 2C 00 02                              ....n..!d... .,.
+Payload
+	 26 A8 49 65 00 00 00 00 23 D1 01 00 00 00 00 00      &.Ie....#.......
+	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
+	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
+	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+
+===================================ICMP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:d5:4a:cd 
+    | Source MAC      : 0:15:5d:d5:41:88 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 0 
+    | Fragment Offset        : 0 Bytes 
+    | Time to Live           : 117 
+    | Transport Protocol     : 1 
+    | Checksum               : 63419 
+    | Source IP Address      : 142.251.33.100 
+    | Destination IP Address : 172.31.241.110 
+
+ICMP Header
+    | Type     : 0 (Echo Reply)
+    | Code     : 0
+    | Checksum : 44064
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D D5 4A CD 00 15 5D D5 41 88 08 00            .....].J...].A..
+IP Header
+	 45 00 00 54 00 00 00 00 75 01 F7 BB 8E FB 21 64      E..T....u.....!d
+	 AC 1F F1 6E                                          T....u.....!d...
+ICMP Header
+	 00 00 AC 20 00 2C 00 02                              ...!d...n... .,.
+Payload
+	 26 A8 49 65 00 00 00 00 23 D1 01 00 00 00 00 00      &.Ie....#.......
+	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
+	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
+	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+
+===================================ICMP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:d5:41:88 
+    | Source MAC      : 0:15:5d:d5:4a:cd 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 10700 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 49903 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 142.251.33.100 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 42266
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
+IP Header
+	 45 00 00 54 29 CC 40 00 40 01 C2 EF AC 1F F1 6E      E..T).@.@......n
+	 8E FB 21 64                                          T).@.@......n..!
+ICMP Header
+	 08 00 A5 1A 00 2C 00 03                              ....n..!d.....,.
+Payload
+	 27 A8 49 65 00 00 00 00 21 D6 01 00 00 00 00 00      '.Ie....!.......
+	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
+	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
+	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+
+===================================ICMP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:d5:4a:cd 
+    | Source MAC      : 0:15:5d:d5:41:88 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 0 
+    | Fragment Offset        : 0 Bytes 
+    | Time to Live           : 117 
+    | Transport Protocol     : 1 
+    | Checksum               : 63419 
+    | Source IP Address      : 142.251.33.100 
+    | Destination IP Address : 172.31.241.110 
+
+ICMP Header
+    | Type     : 0 (Echo Reply)
+    | Code     : 0
+    | Checksum : 44314
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D D5 4A CD 00 15 5D D5 41 88 08 00            .....].J...].A..
+IP Header
+	 45 00 00 54 00 00 00 00 75 01 F7 BB 8E FB 21 64      E..T....u.....!d
+	 AC 1F F1 6E                                          T....u.....!d...
+ICMP Header
+	 00 00 AD 1A 00 2C 00 03                              ...!d...n.....,.
+Payload
+	 27 A8 49 65 00 00 00 00 21 D6 01 00 00 00 00 00      '.Ie....!.......
+	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
+	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
+	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+
+===================================ICMP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:d5:41:88 
+    | Source MAC      : 0:15:5d:d5:4a:cd 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 10747 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 49856 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 142.251.33.100 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 63249
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
+IP Header
+	 45 00 00 54 29 FB 40 00 40 01 C2 C0 AC 1F F1 6E      E..T).@.@......n
+	 8E FB 21 64                                          T).@.@......n..!
+ICMP Header
+	 08 00 F7 11 00 2C 00 04                              ....n..!d.....,.
+Payload
+	 28 A8 49 65 00 00 00 00 CE DD 01 00 00 00 00 00      (.Ie............
+	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
+	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
+	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+
+===================================ICMP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:d5:4a:cd 
+    | Source MAC      : 0:15:5d:d5:41:88 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 0 
+    | Fragment Offset        : 0 Bytes 
+    | Time to Live           : 117 
+    | Transport Protocol     : 1 
+    | Checksum               : 63419 
+    | Source IP Address      : 142.251.33.100 
+    | Destination IP Address : 172.31.241.110 
+
+ICMP Header
+    | Type     : 0 (Echo Reply)
+    | Code     : 0
+    | Checksum : 65297
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D D5 4A CD 00 15 5D D5 41 88 08 00            .....].J...].A..
+IP Header
+	 45 00 00 54 00 00 00 00 75 01 F7 BB 8E FB 21 64      E..T....u.....!d
+	 AC 1F F1 6E                                          T....u.....!d...
+ICMP Header
+	 00 00 FF 11 00 2C 00 04                              ...!d...n.....,.
+Payload
+	 28 A8 49 65 00 00 00 00 CE DD 01 00 00 00 00 00      (.Ie............
+	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
+	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
+	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+
+===================================ICMP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:d5:41:88 
+    | Source MAC      : 0:15:5d:d5:4a:cd 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 10835 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 49768 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 142.251.33.100 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 37898
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
+IP Header
+	 45 00 00 54 2A 53 40 00 40 01 C2 68 AC 1F F1 6E      E..T*S@.@..h...n
+	 8E FB 21 64                                          T*S@.@..h...n..!
+ICMP Header
+	 08 00 94 0A 00 2C 00 05                              h...n..!d.....,.
+Payload
+	 29 A8 49 65 00 00 00 00 30 E4 01 00 00 00 00 00      ).Ie....0.......
+	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
+	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
+	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+
+===================================ICMP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:d5:4a:cd 
+    | Source MAC      : 0:15:5d:d5:41:88 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 0 
+    | Fragment Offset        : 0 Bytes 
+    | Time to Live           : 117 
+    | Transport Protocol     : 1 
+    | Checksum               : 63419 
+    | Source IP Address      : 142.251.33.100 
+    | Destination IP Address : 172.31.241.110 
+
+ICMP Header
+    | Type     : 0 (Echo Reply)
+    | Code     : 0
+    | Checksum : 39946
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D D5 4A CD 00 15 5D D5 41 88 08 00            .....].J...].A..
+IP Header
+	 45 00 00 54 00 00 00 00 75 01 F7 BB 8E FB 21 64      E..T....u.....!d
+	 AC 1F F1 6E                                          T....u.....!d...
+ICMP Header
+	 00 00 9C 0A 00 2C 00 05                              ...!d...n.....,.
+Payload
+	 29 A8 49 65 00 00 00 00 30 E4 01 00 00 00 00 00      ).Ie....0.......
+	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
+	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
+	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+
+===================================ICMP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:d5:41:88 
+    | Source MAC      : 0:15:5d:d5:4a:cd 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 84 Bytes 
+    | Identification         : 10885 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 1 
+    | Checksum               : 49718 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 142.251.33.100 
+
+ICMP Header
+    | Type     : 8 (Echo)
+    | Code     : 0
+    | Checksum : 28418
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
+IP Header
+	 45 00 00 54 2A 85 40 00 40 01 C2 36 AC 1F F1 6E      E..T*.@.@..6...n
+	 8E FB 21 64                                          T*.@.@..6...n..!
+ICMP Header
+	 08 00 6F 02 00 2C 00 06                              6...n..!d..o..,.
+Payload
+	 2A A8 49 65 00 00 00 00 54 EB 01 00 00 00 00 00      *.Ie....T.......
+	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
+	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
+	 30 31 32 33 34 35 36 37                              '()*+,-./0123456

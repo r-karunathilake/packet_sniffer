@@ -4,7 +4,7 @@ This is a simple packet capture program written in C for Linux. It allows you to
 
 ## Features
 
-- Capture network packets on a specified network interface. (To be implemented, currently only default interface)
+- Capture network packets on a specified network interface.
 - Add network filter to the capture. See [tcpdump filters](https://www.tcpdump.org/manpages/pcap-filter.7.html). 
 - Specify number of packets to capture. 
 - Parse packet details such as source and destination IP addresses, protocols, etc. 
@@ -34,11 +34,17 @@ You can run the packet capture program by executing the following command:
 
 Replace `[options]` with the following:
 
-- `-i <interface>`: (Optional) Specify the network interface to capture packets (e.g., eth0). If not provided, the default interface is selected. (To be implemented soon)
+- `-l <log_file>`: (Optional) Specify the output file to save captured packets (in text format). Default is a "log.txt" file in the current working directory.  
 
-- `-f <filename>`: (Optional) Specify the output file to save captured packets (in text format). (To be implemented soon)
+- `-n <num_packets>`: (Optional) Specify the maximum number of packets to capture. Default is continuous capture until program is terminated. 
 
-- `-h`: Display help and usage information. (To be implemented soon)
+- `-i <interface>`: (Optional) Specify the network interface to capture packets (e.g., eth0). If not provided, the default interface is selected. 
+
+- `-f <filter_pattern>`: (Optional) Specify packet filter string based on [TCPDump format](https://www.tcpdump.org/manpages/pcap-filter.7.html). 
+
+- `-t <time>`: (Optional) Specify the time to run the capture in milliseconds. Default is 10 seconds. Note: this option overrides the number of packets. 
+
+- `-h`: Display help and usage information. 
 
 Example usage:
     `./packet_capture -i eth0 -f captured_packets.txt`

@@ -1,7 +1,7 @@
 /*
   This is a IPv4 packet sniffer program created using the libpcap
   library for low-level network access. The program is written and
-  tested in Ubuntu.
+  tested on Ubuntu.
 
     Ubuntu version:         22.04.3 LTS
     lippcap version:        1.10.1
@@ -13,6 +13,7 @@
 */
 
 #include <stdio.h>
+#include <getopt.h>
 #include <string.h>          // For strcpy() and memset()
 #include <pcap.h>            // Access copies of packets off the wire.
 #include <stdlib.h>          // For exit()
@@ -22,6 +23,7 @@
 #include <net/ethernet.h>	 // Provides ethernet header declaration
 #include <netinet/ip.h>		 // Provides IP header declaration
 #include <netinet/ip_icmp.h> // Provides ICMP header declaration
+#include <netinet/igmp.h>    // Provides IGMP header declaration 
 #include <netinet/tcp.h>	 // Provides TCP header declaration
 #include <netinet/udp.h>	 // Provides UDP header declaration
 
@@ -36,6 +38,7 @@ static int other_count = 0;
 static int invalid_count = 0;
 
 // Function prototypes
+void log_igmp_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 void log_icmp_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 void log_udp_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 void log_tcp_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
@@ -45,6 +48,7 @@ u_int16_t get_eth_protocol(u_char *, const u_char *);
 void log_ethernet_header(u_char *, const u_char *);
 void log_ip_header(u_char *, const u_char *);
 void log_raw_data(const u_char *, int);
+void print_usage();
 
 int main(int argc, char *argv[])
 {
@@ -60,113 +64,160 @@ int main(int argc, char *argv[])
     struct bpf_program filter;			// Compiled filter structure
     u_char *callbackArgs;               // Arguments for 'process_packet()'
 
-    if (argc < 2)
-    {
-        fprintf(stderr, "Usage: %s <maximum_packets_to_capture> <optional: filter>\n", argv[0]);
-        exit(EXIT_FAILURE);
-    }
+    // Parse user provided arguments 
+    int numPackets = -1;
+    char *filterPattern = NULL; 
+    int captureTime = 10000; // ms
+    char *logFilePath = "log.txt";
 
-    // Get a list of all available devices
-    printf("Finding available devices ... ");
-    if (pcap_findalldevs(&pAllDevices, errorBuffer))
+    static struct option long_options[] = {
+        {"log", required_argument, 0, 'l'},
+        {"time", required_argument, 0, 't'},
+        {"packets", required_argument, 0, 'n'},
+        {"interface", required_argument, 0, 'i'},
+        {"filter", required_argument, 0, 'f'},
+        {"help", no_argument, 0, 'h'},
+        {0, 0, 0, 0}
+    };
+    int option; 
+    while ((option = getopt_long(argc, argv, "l:t:n:i:f:h", long_options, NULL)) != -1)
     {
-        fprintf(stderr, "Encountered an error in finding devices : %s", errorBuffer);
-        exit(EXIT_FAILURE);
-    }
-    printf("Done\n");
-
-    printf("Found following devices:\n");
-    int deviceNum = 1;
-    for (pDevice = pAllDevices; pDevice != NULL; pDevice = pDevice->next)
-    {
-        // Select the default interface (first in the list)
-        if (deviceNum == 1)
+        switch (option)
         {
-            pDeviceName = pDevice->name;
+            case 'l':
+                logFilePath = optarg;
+                break;
+            case 'n':
+                numPackets = atoi(optarg);
+                break;
+            case 'i':
+                pDeviceName = optarg;
+                break;
+            case 'f':
+                filterPattern = optarg;
+                break;
+            case 't':
+                captureTime = atoi(optarg);
+                break;
+            case 'h':
+                print_usage();
+                exit(EXIT_SUCCESS);
+            case '?':
+                printf("Invalid option or missing argument. Use -h or --help for usage.\n");
+                exit(EXIT_FAILURE);
         }
-        printf("  %d. %s - %s\n", deviceNum, pDevice->name, pDevice->description);
-        deviceNum++;
     }
-
-    printf("\nSelecting default device ... \n");
-    // Get the device IP and mask in byte order
-    if (pcap_lookupnet(pDeviceName, &ip, &mask, errorBuffer) == -1)
-    {
-        fprintf(stderr, "Couldn't get netmask for device %s: %s\n", pDeviceName,
-                errorBuffer);
-        ip = 0;
-        mask = 0;
-    }
-    printf("  Device: %s\n", pDeviceName);
-
-    // Convert the IP and mask from bytes to IPv4 dotted-decimal notation
-    struct in_addr addr; // IPv4 address conversion structure
-    addr.s_addr = ip;
-
-    char writeBuffer[INET_ADDRSTRLEN];
-    ip_addr = inet_ntop(AF_INET, &addr, writeBuffer, INET_ADDRSTRLEN);
-    if (ip_addr == NULL)
-    {
-        perror("inet_ntop()");
-        exit(EXIT_FAILURE);
-    }
-    printf("  IP: %s\n", ip_addr);
-
-    addr.s_addr = mask;
-    mask_addr = inet_ntop(AF_INET, &addr, writeBuffer, INET_ADDRSTRLEN);
-    if (mask_addr == NULL)
-    {
-        perror("inet_ntop()");
-        exit(EXIT_FAILURE);
-    }
-    printf("  Mask: %s\n", mask_addr);
-
-    // Sniffing in promiscuous mode
-    printf("\nOpening device '%s' for sniffing ... ", pDeviceName);
-    pHandle = pcap_open_live(pDeviceName, BUFSIZ, 1, 10000, errorBuffer);
-    if (pHandle == NULL)
-    {
-        fprintf(stderr, "Couldn't open device '%s': %s\n", pDeviceName, errorBuffer);
-        exit(EXIT_FAILURE);
-    }
-    printf("Done\n");
-
-    // Open a log file handler for traffic parsing output
-    logFile = fopen("log.txt", "w");
-    if (logFile == NULL)
-    {
-        printf("WARNING: * Unsuccessful in creating log file!");
-    }
-
-    if (argc > 2)
-    {
-        // Compile and apply packet filter
-        if (pcap_compile(pHandle, &filter, argv[2], 0, mask) == -1)
+        // Get a list of all available devices
+        printf("Finding available devices ... ");
+        if (pcap_findalldevs(&pAllDevices, errorBuffer))
         {
-            fprintf(stderr, "Error compiling packet filter: %s\n", argv[2]);
+            fprintf(stderr, "Encountered an error in finding devices : %s", errorBuffer);
             exit(EXIT_FAILURE);
         }
-        if (pcap_setfilter(pHandle, &filter) == -1)
+        printf("Done\n");
+
+        if(pDeviceName == NULL){
+            printf("Found following devices:\n");
+            int deviceNum = 1;
+            for (pDevice = pAllDevices; pDevice != NULL; pDevice = pDevice->next)
+            {
+                // Select the default interface (first in the list)
+                if (deviceNum == 1)
+                {
+                    pDeviceName = pDevice->name;
+                }
+                printf("  %d. %s - %s\n", deviceNum, pDevice->name, pDevice->description);
+                deviceNum++;
+            }
+            printf("\nSelecting default %s device ... \n", pDeviceName);
+        }
+        else{
+            printf("\nSelecting %s device ... \n", pDeviceName);
+        }
+
+        // Get the device IP and mask in byte order
+        if (pcap_lookupnet(pDeviceName, &ip, &mask, errorBuffer) == -1)
         {
-            fprintf(stderr, "Unable to set requested packet filter: %s\n", argv[2]);
+            fprintf(stderr, "Couldn't get netmask for device %s: %s\n", pDeviceName,
+                    errorBuffer);
+            ip = 0;
+            mask = 0;
+        }
+
+        // Convert the IP and mask from bytes to IPv4 dotted-decimal notation
+        struct in_addr addr; // IPv4 address conversion structure
+        addr.s_addr = ip;
+
+        char writeBuffer[INET_ADDRSTRLEN];
+        ip_addr = inet_ntop(AF_INET, &addr, writeBuffer, INET_ADDRSTRLEN);
+        if (ip_addr == NULL)
+        {
+            perror("inet_ntop()");
             exit(EXIT_FAILURE);
         }
+        printf("  IP: %s\n", ip_addr);
+
+        addr.s_addr = mask;
+        mask_addr = inet_ntop(AF_INET, &addr, writeBuffer, INET_ADDRSTRLEN);
+        if (mask_addr == NULL)
+        {
+            perror("inet_ntop()");
+            exit(EXIT_FAILURE);
+        }
+        printf("  Mask: %s\n", mask_addr);
+
+        // Sniffing in promiscuous mode
+        printf("\nOpening device '%s' for sniffing ... ", pDeviceName);
+        pHandle = pcap_open_live(pDeviceName, BUFSIZ, 1, captureTime, errorBuffer);
+        if (pHandle == NULL)
+        {
+            fprintf(stderr, "Couldn't open device '%s': %s\n", pDeviceName, errorBuffer);
+            exit(EXIT_FAILURE);
+        }
+        printf("Done\n");
+
+        // Open a log file handler for traffic parsing output
+        logFile = fopen(logFilePath, "w");
+        if (logFile == NULL)
+        {
+            printf("ERROR: * Unsuccessful in creating log file!\n");
+            exit(EXIT_FAILURE);
+        }
+
+        if (filterPattern != NULL)
+        {
+            // Compile and apply packet filter
+            if (pcap_compile(pHandle, &filter, filterPattern, 0, mask) == -1)
+            {
+                fprintf(stderr, "Error compiling packet filter: %s\n", filterPattern);
+                exit(EXIT_FAILURE);
+            }
+            if (pcap_setfilter(pHandle, &filter) == -1)
+            {
+                fprintf(stderr, "Unable to set requested packet filter: %s\n", filterPattern);
+                exit(EXIT_FAILURE);
+            }
+        }
+
+        /* Put the selected device in a packet capture loop with callback function
+        'process_packet()' */
+        pcap_dispatch(pHandle, numPackets, process_packet, callbackArgs);
+
+        // Free all the devices from memory
+        printf("Freeing all network devices and closing session ... ");
+        pcap_freealldevs(pAllDevices);
+        pcap_close(pHandle); // Close session
+        printf("Done\n");
+
+        if (logFile != NULL)
+        {
+            fclose(logFile);
+        }
+
+        printf("\n\nICMP: %d  IGMP: %d  TCP: %d  UDP: %d  Other: %d  Invalid: %d  Total: %d\n",
+               icmp_count, igmp_count, tcp_count, udp_count, other_count, invalid_count, total);
+        exit(EXIT_SUCCESS);
     }
-
-    /* Put the selected device in a packet capture loop with callback function
-    'process_packet()' */
-    pcap_loop(pHandle, atoi(argv[1]), process_packet, callbackArgs);
-
-    // Free all the devices from memory
-    printf("Freeing all network devices and closing session ... ");
-    pcap_freealldevs(pAllDevices);
-    pcap_close(pHandle); // Close session
-    printf("Done\n");
-
-    printf("\n\nICMP: %d  IGMP: %d  TCP: %d  UDP: %d  Other: %d  Invalid: %d  Total: %d\n",
-           icmp_count, igmp_count, tcp_count, udp_count, other_count, invalid_count, total);
-    exit(EXIT_SUCCESS);
-}
 
 void process_packet(u_char *args, const struct pcap_pkthdr *header,
                     const u_char *packet)
@@ -180,22 +231,22 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header,
         int ipProtocol = get_ip_protocol(args, header, packet);
         switch (ipProtocol) // See RFC 790 for protocol-value mapping
         {
-            case 1: // ICMP protocol
+            case IPPROTO_ICMP: // ICMP protocol
                 ++icmp_count;
                 log_icmp_packet(args, header, packet);
                 break;
 
-            case 2: // IGMP protocol
+            case IPPROTO_IGMP: // IGMP protocol
                 ++igmp_count;
-                printf("Received IGMP packet!\n");
+                //log_igmp_packet(args, header, packet);
                 break;
 
-            case 6: // TCP protocol
+            case IPPROTO_TCP: // TCP protocol
                 ++tcp_count;
                 log_tcp_packet(args, header, packet);
                 break;
 
-            case 17: // UDP protocol
+            case IPPROTO_UDP: // UDP protocol
                 ++udp_count;
                 log_udp_packet(args, header, packet);
                 break;
@@ -226,6 +277,17 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header,
     {
         // Handle reverse ARP packet
     }
+}
+
+void log_igmp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *packet){
+    fprintf(logFile, "\n===================================IGMP Packet==================================\n");
+    log_ethernet_header(args, packet);
+    log_ip_header(args, packet);
+
+    // Parse the IGMP header
+    struct icmphdr *pIGMPHeader = (struct icmphdr *)(packet + sizeof(struct ether_header) + sizeof(struct iphdr));
+    struct iphdr *pIPHeader = (struct iphdr *)(packet + sizeof(struct ether_header));
+    unsigned int ipHeaderLength = pIPHeader->ihl * 4;
 }
 
 void log_icmp_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *packet)
@@ -540,4 +602,14 @@ void log_raw_data(const u_char *pData, int dataSize)
     }
 }
 
-// TODO: write a function for program usage
+void print_usage(){
+    printf("Usage: packet_sniffer [OPTIONS]\n");
+    printf("Options:\n");
+    printf("  -l, --log <log_file>            Specify the log file name\n");
+    printf("  -n, --packets <num_packets>      Specify the number of packets to capture\n");
+    printf("  -i, --interface <interface>      Specity the interface name (If not specified, the default interface is used)\n");
+    printf("  -f, --filter <filter_pattern>    Specify the TCPDump style filter\n");
+    printf("  -t, --time <capture_time>        Specify the packet capture time in ms\n");
+    printf("  -h, --help                       Show this help message\n");
+}
+
