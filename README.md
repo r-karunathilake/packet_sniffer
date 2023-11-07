@@ -1,6 +1,6 @@
 # Packet Capture Program in C
 
-This is a simple packet capture program written in C for Linux. It allows you to capture network packets and analyze their contents. This program uses the popular libpcap library to capture packets and provides a basic command-line interface for interacting with program. 
+This is a simple packet capture program written in C for Linux. It allows you to capture network packets and analyze their contents. This program uses the popular libpcap library to capture packets and provides a basic command-line interface for interacting with the program. 
 
 ## Features
 
@@ -20,8 +20,8 @@ Before using this program, ensure you have the following prerequisites installed
 ## Installation
 
 1. Clone this repository to your local machine:
-SSH:  `git@github.com:r-karunathilake/packet_sniffer.git`
-HTTPS:  `https://github.com/r-karunathilake/packet_sniffer.git`
+- SSH:  `git@github.com:r-karunathilake/packet_sniffer.git`
+- HTTPS:  `https://github.com/r-karunathilake/packet_sniffer.git`
 
 
 2. Compile the program using your C compiler:
@@ -47,7 +47,11 @@ Replace `[options]` with the following:
 - `-h`: Display help and usage information. 
 
 Example usage:
-    `./packet_capture -i eth0 -f captured_packets.txt`
+    `sudo ./packet_sniffer -i eth0 -n 11 -f "host www.google.com" -t 100000 -l captured_packets.txt`
+
+This command shows a capture instance on `eth0` interface for `11` packets for `10 seconds`. Additionally, `host www.google.com` filter is configured. Finally, the captured output is logged to [`captured_packets.txt`](./captured_packets.txt).
+
+> Note: require super user privileges to run the program. 
 
 ## License
 This packet capture program is open-source and available under the [MIT License](https://opensource.org/license/mit/).
