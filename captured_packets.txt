@@ -1,429 +1,1325 @@
 
-===================================ICMP Packet==================================
+===================================UDP Packet==================================
 
 Ethernet Header
-    | Destination MAC : 0:15:5d:d5:41:88 
-    | Source MAC      : 0:15:5d:d5:4a:cd 
+    | Destination MAC : 0:15:5d:66:c4:1f 
+    | Source MAC      : 0:15:5d:2a:8d:4f 
     | Protocol        : IP 
 
 IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
-    | Identification         : 10612 
+    | Total Length           : 76 Bytes 
+    | Identification         : 38945 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
-    | Transport Protocol     : 1 
-    | Checksum               : 49991 
+    | Transport Protocol     : 17 
+    | Checksum               : 26832 
     | Source IP Address      : 172.31.241.110 
-    | Destination IP Address : 142.251.33.100 
+    | Destination IP Address : 172.31.240.1 
 
-ICMP Header
-    | Type     : 8 (Echo)
-    | Code     : 0
-    | Checksum : 27432
+UDP Header
+    | Source Port            : 54042 
+    | Destination Port       : 53 
+    | Length                 : 56 Bytes 
+    | Checksum               : 14841 
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
+	 00 15 5D 66 C4 1F 00 15 5D 2A 8D 4F 08 00            .....]f....]*.O.
 IP Header
-	 45 00 00 54 29 74 40 00 40 01 C3 47 AC 1F F1 6E      E..T)t@.@..G...n
-	 8E FB 21 64                                          T)t@.@..G...n..!
-ICMP Header
-	 08 00 6B 28 00 2C 00 01                              G...n..!d..k(.,.
+	 45 00 00 4C 98 21 40 00 40 11 68 D0 AC 1F F1 6E      E..L.!@.@.h....n
+	 AC 1F F0 01                                          L.!@.@.h....n...
+UDP Header
+	 D3 1A 00 35 00 38 39 F9                              ....n.......5.89
 Payload
-	 25 A8 49 65 00 00 00 00 5D CA 01 00 00 00 00 00      %.Ie....].......
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+	 10 96 01 00 00 01 00 00 00 00 00 00 07 70 72 69      .............pri
+	 76 61 74 65 0E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
+	 65 6C 64 04 63 69 72 61 02 63 61 00 00 01 00 01      ield.cira.ca....
 
-===================================ICMP Packet==================================
+===================================UDP Packet==================================
 
 Ethernet Header
-    | Destination MAC : 0:15:5d:d5:4a:cd 
-    | Source MAC      : 0:15:5d:d5:41:88 
+    | Destination MAC : 0:15:5d:66:c4:1f 
+    | Source MAC      : 0:15:5d:2a:8d:4f 
     | Protocol        : IP 
 
 IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
-    | Identification         : 0 
+    | Total Length           : 76 Bytes 
+    | Identification         : 38946 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 17 
+    | Checksum               : 26831 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 172.31.240.1 
+
+UDP Header
+    | Source Port            : 54042 
+    | Destination Port       : 53 
+    | Length                 : 56 Bytes 
+    | Checksum               : 14841 
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D 66 C4 1F 00 15 5D 2A 8D 4F 08 00            .....]f....]*.O.
+IP Header
+	 45 00 00 4C 98 22 40 00 40 11 68 CF AC 1F F1 6E      E..L."@.@.h....n
+	 AC 1F F0 01                                          L."@.@.h....n...
+UDP Header
+	 D3 1A 00 35 00 38 39 F9                              ....n.......5.89
+Payload
+	 DE 94 01 00 00 01 00 00 00 00 00 00 07 70 72 69      .............pri
+	 76 61 74 65 0E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
+	 65 6C 64 04 63 69 72 61 02 63 61 00 00 1C 00 01      ield.cira.ca....
+
+===================================UDP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:2a:8d:4f 
+    | Source MAC      : 0:15:5d:66:c4:1f 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 138 Bytes 
+    | Identification         : 33645 
     | Fragment Offset        : 0 Bytes 
-    | Time to Live           : 117 
-    | Transport Protocol     : 1 
-    | Checksum               : 63419 
-    | Source IP Address      : 142.251.33.100 
+    | Time to Live           : 128 
+    | Transport Protocol     : 17 
+    | Checksum               : 32070 
+    | Source IP Address      : 172.31.240.1 
     | Destination IP Address : 172.31.241.110 
 
-ICMP Header
-    | Type     : 0 (Echo Reply)
-    | Code     : 0
-    | Checksum : 29480
+UDP Header
+    | Source Port            : 53 
+    | Destination Port       : 54042 
+    | Length                 : 118 Bytes 
+    | Checksum               : 37069 
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D D5 4A CD 00 15 5D D5 41 88 08 00            .....].J...].A..
+	 00 15 5D 2A 8D 4F 00 15 5D 66 C4 1F 08 00            .....]*.O..]f...
 IP Header
-	 45 00 00 54 00 00 00 00 75 01 F7 BB 8E FB 21 64      E..T....u.....!d
-	 AC 1F F1 6E                                          T....u.....!d...
-ICMP Header
-	 00 00 73 28 00 2C 00 01                              ...!d...n..s(.,.
+	 45 00 00 8A 83 6D 00 00 80 11 7D 46 AC 1F F0 01      E....m....}F....
+	 AC 1F F1 6E                                          ..m....}F.......
+UDP Header
+	 00 35 D3 1A 00 76 90 CD                              F.......n.5...v.
 Payload
-	 25 A8 49 65 00 00 00 00 5D CA 01 00 00 00 00 00      %.Ie....].......
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+	 10 96 81 00 00 01 00 02 00 00 00 00 07 70 72 69      .............pri
+	 76 61 74 65 0E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
+	 65 6C 64 04 63 69 72 61 02 63 61 00 00 01 00 01      eld.cira.ca.....
+	 07 70 72 69 76 61 74 65 0E 63 61 6E 61 64 69 61      .private.canadia
+	 6E 73 68 69 65 6C 64 04 63 69 72 61 02 63 61 00      nshield.cira.ca.
+	 00 01 00 01 00 00 00 00 00 04 95 70 79 0A C0 30      ...........py..0
+	 00 01 00 01 00 00 00 00 00 04 95 70 7A 0A            ..0...........pz
 
-===================================ICMP Packet==================================
+===================================UDP Packet==================================
 
 Ethernet Header
-    | Destination MAC : 0:15:5d:d5:41:88 
-    | Source MAC      : 0:15:5d:d5:4a:cd 
+    | Destination MAC : 0:15:5d:2a:8d:4f 
+    | Source MAC      : 0:15:5d:66:c4:1f 
     | Protocol        : IP 
 
 IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
-    | Identification         : 10689 
-    | Fragment Offset        : 16384 Bytes 
-    | Time to Live           : 64 
-    | Transport Protocol     : 1 
-    | Checksum               : 49914 
-    | Source IP Address      : 172.31.241.110 
-    | Destination IP Address : 142.251.33.100 
-
-ICMP Header
-    | Type     : 8 (Echo)
-    | Code     : 0
-    | Checksum : 42016
-
-                                   RAW DATA                                   
-Ethernet Header
-	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
-IP Header
-	 45 00 00 54 29 C1 40 00 40 01 C2 FA AC 1F F1 6E      E..T).@.@......n
-	 8E FB 21 64                                          T).@.@......n..!
-ICMP Header
-	 08 00 A4 20 00 2C 00 02                              ....n..!d... .,.
-Payload
-	 26 A8 49 65 00 00 00 00 23 D1 01 00 00 00 00 00      &.Ie....#.......
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
-
-===================================ICMP Packet==================================
-
-Ethernet Header
-    | Destination MAC : 0:15:5d:d5:4a:cd 
-    | Source MAC      : 0:15:5d:d5:41:88 
-    | Protocol        : IP 
-
-IP Header
-    | IP Version             : 4 
-    | Header Length          : 20 Bytes 
-    | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
-    | Identification         : 0 
+    | Total Length           : 162 Bytes 
+    | Identification         : 33646 
     | Fragment Offset        : 0 Bytes 
-    | Time to Live           : 117 
-    | Transport Protocol     : 1 
-    | Checksum               : 63419 
-    | Source IP Address      : 142.251.33.100 
+    | Time to Live           : 128 
+    | Transport Protocol     : 17 
+    | Checksum               : 32045 
+    | Source IP Address      : 172.31.240.1 
     | Destination IP Address : 172.31.241.110 
 
-ICMP Header
-    | Type     : 0 (Echo Reply)
-    | Code     : 0
-    | Checksum : 44064
+UDP Header
+    | Source Port            : 53 
+    | Destination Port       : 54042 
+    | Length                 : 142 Bytes 
+    | Checksum               : 36927 
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D D5 4A CD 00 15 5D D5 41 88 08 00            .....].J...].A..
+	 00 15 5D 2A 8D 4F 00 15 5D 66 C4 1F 08 00            .....]*.O..]f...
 IP Header
-	 45 00 00 54 00 00 00 00 75 01 F7 BB 8E FB 21 64      E..T....u.....!d
-	 AC 1F F1 6E                                          T....u.....!d...
-ICMP Header
-	 00 00 AC 20 00 2C 00 02                              ...!d...n... .,.
+	 45 00 00 A2 83 6E 00 00 80 11 7D 2D AC 1F F0 01      E....n....}-....
+	 AC 1F F1 6E                                          ..n....}-.......
+UDP Header
+	 00 35 D3 1A 00 8E 90 3F                              -.......n.5.....
 Payload
-	 26 A8 49 65 00 00 00 00 23 D1 01 00 00 00 00 00      &.Ie....#.......
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+	 DE 94 81 00 00 01 00 02 00 00 00 00 07 70 72 69      .............pri
+	 76 61 74 65 0E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
+	 65 6C 64 04 63 69 72 61 02 63 61 00 00 1C 00 01      eld.cira.ca.....
+	 07 70 72 69 76 61 74 65 0E 63 61 6E 61 64 69 61      .private.canadia
+	 6E 73 68 69 65 6C 64 04 63 69 72 61 02 63 61 00      nshield.cira.ca.
+	 00 1C 00 01 00 00 00 00 00 10 26 20 01 0A 80 BB      ..........& ....
+	 00 00 00 00 00 00 00 00 00 10 C0 30 00 1C 00 01      ...........0....
+	 00 00 00 00 00 10 26 20 01 0A 80 BC 00 00 00 00      ......& ........
+	 00 00 00 00 00 10                                    .& .............
 
-===================================ICMP Packet==================================
+===================================TCP Packet==================================
 
 Ethernet Header
-    | Destination MAC : 0:15:5d:d5:41:88 
-    | Source MAC      : 0:15:5d:d5:4a:cd 
+    | Destination MAC : 0:15:5d:66:c4:1f 
+    | Source MAC      : 0:15:5d:2a:8d:4f 
     | Protocol        : IP 
 
 IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
-    | Identification         : 10700 
+    | Total Length           : 60 Bytes 
+    | Identification         : 25105 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
-    | Transport Protocol     : 1 
-    | Checksum               : 49903 
+    | Transport Protocol     : 6 
+    | Checksum               : 11426 
     | Source IP Address      : 172.31.241.110 
-    | Destination IP Address : 142.251.33.100 
+    | Destination IP Address : 149.112.121.10 
 
-ICMP Header
-    | Type     : 8 (Echo)
-    | Code     : 0
-    | Checksum : 42266
+TCP Header
+    | Source Port            : 32862 
+    | Destination Port       : 443 
+    | Sequence Number        : 357295455 
+    | Acknowledgment Number  : 0 
+    | Header Length          : 40 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 0 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 1 
+    | Finish Flag            : 0 
+    | Window                 : 64240 
+    | Checksum               : 44087 
+    | Urgent Pointer         : 0 
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
+	 00 15 5D 66 C4 1F 00 15 5D 2A 8D 4F 08 00            .....]f....]*.O.
 IP Header
-	 45 00 00 54 29 CC 40 00 40 01 C2 EF AC 1F F1 6E      E..T).@.@......n
-	 8E FB 21 64                                          T).@.@......n..!
-ICMP Header
-	 08 00 A5 1A 00 2C 00 03                              ....n..!d.....,.
+	 45 00 00 3C 62 11 40 00 40 06 2C A2 AC 1F F1 6E      E..<b.@.@.,....n
+	 95 70 79 0A                                          <b.@.@.,....n.py
+TCP Header
+	 80 5E 01 BB 15 4B E5 5F 00 00 00 00 A0 02 FA F0      .^...K._........
+	 AC 37 00 00 02 04 05 B4 04 02 08 0A AA A7 22 85      .7............".
+	 00 00 00 00 01 03 03 07                              ......."........
 Payload
-	 27 A8 49 65 00 00 00 00 21 D6 01 00 00 00 00 00      '.Ie....!.......
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
 
-===================================ICMP Packet==================================
+===================================TCP Packet==================================
 
 Ethernet Header
-    | Destination MAC : 0:15:5d:d5:4a:cd 
-    | Source MAC      : 0:15:5d:d5:41:88 
+    | Destination MAC : 0:15:5d:66:c4:1f 
+    | Source MAC      : 0:15:5d:2a:8d:4f 
     | Protocol        : IP 
 
 IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
+    | Total Length           : 60 Bytes 
+    | Identification         : 57657 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 6 
+    | Checksum               : 44409 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 149.112.121.10 
+
+TCP Header
+    | Source Port            : 32874 
+    | Destination Port       : 443 
+    | Sequence Number        : 1453043470 
+    | Acknowledgment Number  : 0 
+    | Header Length          : 40 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 0 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 1 
+    | Finish Flag            : 0 
+    | Window                 : 64240 
+    | Checksum               : 44087 
+    | Urgent Pointer         : 0 
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D 66 C4 1F 00 15 5D 2A 8D 4F 08 00            .....]f....]*.O.
+IP Header
+	 45 00 00 3C E1 39 40 00 40 06 AD 79 AC 1F F1 6E      E..<.9@.@..y...n
+	 95 70 79 0A                                          <.9@.@..y...n.py
+TCP Header
+	 80 6A 01 BB 56 9B AF 0E 00 00 00 00 A0 02 FA F0      .j..V...........
+	 AC 37 00 00 02 04 05 B4 04 02 08 0A AA A7 22 85      .7............".
+	 00 00 00 00 01 03 03 07                              ......."........
+Payload
+
+===================================TCP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:2a:8d:4f 
+    | Source MAC      : 0:15:5d:66:c4:1f 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 60 Bytes 
     | Identification         : 0 
-    | Fragment Offset        : 0 Bytes 
-    | Time to Live           : 117 
-    | Transport Protocol     : 1 
-    | Checksum               : 63419 
-    | Source IP Address      : 142.251.33.100 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 58 
+    | Transport Protocol     : 6 
+    | Checksum               : 38067 
+    | Source IP Address      : 149.112.121.10 
     | Destination IP Address : 172.31.241.110 
 
-ICMP Header
-    | Type     : 0 (Echo Reply)
-    | Code     : 0
-    | Checksum : 44314
+TCP Header
+    | Source Port            : 443 
+    | Destination Port       : 32862 
+    | Sequence Number        : 3683343543 
+    | Acknowledgment Number  : 357295456 
+    | Header Length          : 40 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 1 
+    | Finish Flag            : 0 
+    | Window                 : 28960 
+    | Checksum               : 65533 
+    | Urgent Pointer         : 0 
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D D5 4A CD 00 15 5D D5 41 88 08 00            .....].J...].A..
+	 00 15 5D 2A 8D 4F 00 15 5D 66 C4 1F 08 00            .....]*.O..]f...
 IP Header
-	 45 00 00 54 00 00 00 00 75 01 F7 BB 8E FB 21 64      E..T....u.....!d
-	 AC 1F F1 6E                                          T....u.....!d...
-ICMP Header
-	 00 00 AD 1A 00 2C 00 03                              ...!d...n.....,.
+	 45 00 00 3C 00 00 40 00 3A 06 94 B3 95 70 79 0A      E..<..@.:....py.
+	 AC 1F F1 6E                                          <..@.:....py....
+TCP Header
+	 01 BB 80 5E DB 8B 5C B7 15 4B E5 60 A0 12 71 20      ...^..\..K.`..q 
+	 FF FD 00 00 02 04 05 B4 04 02 08 0A 52 B4 55 DD      ............R.U.
+	 AA A7 22 85 01 03 03 09                              .....R.U..."....
 Payload
-	 27 A8 49 65 00 00 00 00 21 D6 01 00 00 00 00 00      '.Ie....!.......
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
 
-===================================ICMP Packet==================================
+===================================TCP Packet==================================
 
 Ethernet Header
-    | Destination MAC : 0:15:5d:d5:41:88 
-    | Source MAC      : 0:15:5d:d5:4a:cd 
+    | Destination MAC : 0:15:5d:66:c4:1f 
+    | Source MAC      : 0:15:5d:2a:8d:4f 
     | Protocol        : IP 
 
 IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
-    | Identification         : 10747 
+    | Total Length           : 52 Bytes 
+    | Identification         : 25106 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
-    | Transport Protocol     : 1 
-    | Checksum               : 49856 
+    | Transport Protocol     : 6 
+    | Checksum               : 11433 
     | Source IP Address      : 172.31.241.110 
-    | Destination IP Address : 142.251.33.100 
+    | Destination IP Address : 149.112.121.10 
 
-ICMP Header
-    | Type     : 8 (Echo)
-    | Code     : 0
-    | Checksum : 63249
+TCP Header
+    | Source Port            : 32862 
+    | Destination Port       : 443 
+    | Sequence Number        : 357295456 
+    | Acknowledgment Number  : 3683343544 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 502 
+    | Checksum               : 44079 
+    | Urgent Pointer         : 0 
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
+	 00 15 5D 66 C4 1F 00 15 5D 2A 8D 4F 08 00            .....]f....]*.O.
 IP Header
-	 45 00 00 54 29 FB 40 00 40 01 C2 C0 AC 1F F1 6E      E..T).@.@......n
-	 8E FB 21 64                                          T).@.@......n..!
-ICMP Header
-	 08 00 F7 11 00 2C 00 04                              ....n..!d.....,.
+	 45 00 00 34 62 12 40 00 40 06 2C A9 AC 1F F1 6E      E..4b.@.@.,....n
+	 95 70 79 0A                                          4b.@.@.,....n.py
+TCP Header
+	 80 5E 01 BB 15 4B E5 60 DB 8B 5C B8 80 10 01 F6      .^...K.`..\.....
+	 AC 2F 00 00 01 01 08 0A AA A7 22 9D 52 B4 55 DD      ../........".R.U
 Payload
-	 28 A8 49 65 00 00 00 00 CE DD 01 00 00 00 00 00      (.Ie............
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
 
-===================================ICMP Packet==================================
+===================================TCP Packet==================================
 
 Ethernet Header
-    | Destination MAC : 0:15:5d:d5:4a:cd 
-    | Source MAC      : 0:15:5d:d5:41:88 
+    | Destination MAC : 0:15:5d:66:c4:1f 
+    | Source MAC      : 0:15:5d:2a:8d:4f 
     | Protocol        : IP 
 
 IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
+    | Total Length           : 730 Bytes 
+    | Identification         : 25107 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 6 
+    | Checksum               : 10754 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 149.112.121.10 
+
+TCP Header
+    | Source Port            : 32862 
+    | Destination Port       : 443 
+    | Sequence Number        : 357295456 
+    | Acknowledgment Number  : 3683343544 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 1 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 502 
+    | Checksum               : 44757 
+    | Urgent Pointer         : 0 
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D 66 C4 1F 00 15 5D 2A 8D 4F 08 00            .....]f....]*.O.
+IP Header
+	 45 00 02 DA 62 13 40 00 40 06 2A 02 AC 1F F1 6E      E...b.@.@.*....n
+	 95 70 79 0A                                          .b.@.@.*....n.py
+TCP Header
+	 80 5E 01 BB 15 4B E5 60 DB 8B 5C B8 80 18 01 F6      .^...K.`..\.....
+	 AE D5 00 00 01 01 08 0A AA A7 22 9F 52 B4 55 DD      ...........".R.U
+Payload
+	 16 03 01 02 A1 01 00 02 9D 03 03 B1 DB CE C5 F9      ................
+	 DC DD 7A 65 3B C4 7A BC DB AF 9E 7F 88 0A 66 A5      ..ze;.z.......f.
+	 EF E5 8B C9 43 42 5C 7A A5 1A BD 20 0B E6 B4 79      ....CB\z... ...y
+	 72 4E 2B A5 0A 45 09 83 3F 1A C9 67 E6 6E 78 DE      rN+..E..?..g.nx.
+	 83 72 57 E2 AB EE 30 8C 06 AB C5 82 00 22 13 01      .rW...0......"..
+	 13 03 13 02 C0 2B C0 2F CC A9 CC A8 C0 2C C0 30      .....+./.....,.0
+	 C0 0A C0 09 C0 13 C0 14 00 9C 00 9D 00 2F 00 35      ............./.5
+	 01 00 02 32 00 00 00 23 00 21 00 00 1E 70 72 69      ...2...#.!...pri
+	 76 61 74 65 2E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
+	 65 6C 64 2E 63 69 72 61 2E 63 61 00 17 00 00 FF      eld.cira.ca.....
+	 01 00 01 00 00 0A 00 0E 00 0C 00 1D 00 17 00 18      ................
+	 00 19 01 00 01 01 00 0B 00 02 01 00 00 23 00 00      .............#..
+	 00 10 00 0E 00 0C 02 68 32 08 68 74 74 70 2F 31      .......h2.http/1
+	 2E 31 00 05 00 05 01 00 00 00 00 00 22 00 0A 00      .1.........."...
+	 08 04 03 05 03 06 03 02 03 00 33 00 6B 00 69 00      ..........3.k.i.
+	 1D 00 20 78 98 7E 27 A5 38 BF E4 80 6E A0 29 2E      .. x.~'.8...n.).
+	 C0 42 3E B2 66 A2 4D D1 64 BE 78 09 37 AB C2 1C      .B>.f.M.d.x.7...
+	 4D 47 34 00 17 00 41 04 CE D6 49 32 3D FA F5 45      MG4...A...I2=..E
+	 1A 4F D9 8D 73 18 74 4F ED 8B 7A 93 D2 56 26 D8      .O..s.tO..z..V&.
+	 2D 02 B9 65 EF 7A 16 4C 60 B3 5C 07 4B 6A C0 05      -..e.z.L`.\.Kj..
+	 AC 35 E6 95 EB E4 2C 35 FD DB DB 23 48 B8 40 77      .5....,5...#H.@w
+	 0C 26 6D 72 1F B5 15 BB 00 2B 00 05 04 03 04 03      .&mr.....+......
+	 03 00 0D 00 18 00 16 04 03 05 03 06 03 08 04 08      ................
+	 05 08 06 04 01 05 01 06 01 02 03 02 01 00 2D 00      ..............-.
+	 02 01 01 00 1C 00 02 40 01 FE 0D 01 19 00 00 01      .......@........
+	 00 01 C0 00 20 36 9B 14 19 3C DD 64 F7 2C 2D 59      .... 6...<.d.,-Y
+	 DE 46 1A CC 84 CE 00 D1 40 BA D6 47 90 92 6C 30      .F......@..G..l0
+	 6F A9 AB 25 30 00 EF 89 7C A0 28 32 4F AE 6D 1B      o..%0...|.(2O.m.
+	 80 5E 99 2B CD B8 07 26 87 84 57 79 53 DF C5 1C      .^.+...&..WyS...
+	 90 41 F6 E9 6D BC FD 80 C0 C8 72 BC AA 80 83 1B      .A..m.....r.....
+	 0D 2E B5 40 9E F0 34 6F 3A 50 02 22 FC 54 FE 01      ...@..4o:P.".T..
+	 AE CB D1 EA 81 C4 93 31 D5 71 E9 77 D8 DD 7E E4      .......1.q.w..~.
+	 F7 C2 CA DD 2E 20 7B CD 5D 6A C2 B1 3B 64 C0 C6      ..... {.]j..;d..
+	 32 F0 55 23 64 7B EA C0 FC 9E 18 4B C9 67 2D C5      2.U#d{.....K.g-.
+	 17 64 E7 29 A8 5D 5C E0 4F E1 DB DD 85 B1 31 8F      .d.).]\.O.....1.
+	 9A 1B E1 A8 48 EA BD CB 63 92 98 28 E8 D8 E0 ED      ....H...c..(....
+	 D3 E1 54 0D 17 0E F7 F8 B8 91 9B 79 0E 5D D2 43      ..T........y.].C
+	 1A 22 FE 40 EC D2 20 74 03 0E 14 0D D6 DD 05 81      .".@.. t........
+	 22 FE 97 8A A5 2E 61 DD 11 00 F6 46 27 EF A7 65      ".....a....F'..e
+	 EA 75 89 2E 6F 86 A7 E6 21 E4 51 96 CC 91 15 BF      .u..o...!.Q.....
+	 93 A3 C3 BD C0 13 35 8D F1 FD DA C5 B1 A8 8A DA      ......5.........
+	 73 5E CD C2 A2 1D 36 AA 77 21 3E 6A 86 FA F7 AA      s^....6.w!>j....
+	 AD B9 07 5E E0 FB                                    .6.w!>j.......^.
+
+===================================TCP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:2a:8d:4f 
+    | Source MAC      : 0:15:5d:66:c4:1f 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 60 Bytes 
     | Identification         : 0 
-    | Fragment Offset        : 0 Bytes 
-    | Time to Live           : 117 
-    | Transport Protocol     : 1 
-    | Checksum               : 63419 
-    | Source IP Address      : 142.251.33.100 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 58 
+    | Transport Protocol     : 6 
+    | Checksum               : 38067 
+    | Source IP Address      : 149.112.121.10 
     | Destination IP Address : 172.31.241.110 
 
-ICMP Header
-    | Type     : 0 (Echo Reply)
-    | Code     : 0
-    | Checksum : 65297
+TCP Header
+    | Source Port            : 443 
+    | Destination Port       : 32874 
+    | Sequence Number        : 2756121171 
+    | Acknowledgment Number  : 1453043471 
+    | Header Length          : 40 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 1 
+    | Finish Flag            : 0 
+    | Window                 : 28960 
+    | Checksum               : 30357 
+    | Urgent Pointer         : 0 
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D D5 4A CD 00 15 5D D5 41 88 08 00            .....].J...].A..
+	 00 15 5D 2A 8D 4F 00 15 5D 66 C4 1F 08 00            .....]*.O..]f...
 IP Header
-	 45 00 00 54 00 00 00 00 75 01 F7 BB 8E FB 21 64      E..T....u.....!d
-	 AC 1F F1 6E                                          T....u.....!d...
-ICMP Header
-	 00 00 FF 11 00 2C 00 04                              ...!d...n.....,.
+	 45 00 00 3C 00 00 40 00 3A 06 94 B3 95 70 79 0A      E..<..@.:....py.
+	 AC 1F F1 6E                                          <..@.:....py....
+TCP Header
+	 01 BB 80 6A A4 47 12 53 56 9B AF 0F A0 12 71 20      ...j.G.SV.....q 
+	 76 95 00 00 02 04 05 B4 04 02 08 0A 52 B4 55 E3      v...........R.U.
+	 AA A7 22 85 01 03 03 09                              .....R.U..."....
 Payload
-	 28 A8 49 65 00 00 00 00 CE DD 01 00 00 00 00 00      (.Ie............
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
 
-===================================ICMP Packet==================================
+===================================TCP Packet==================================
 
 Ethernet Header
-    | Destination MAC : 0:15:5d:d5:41:88 
-    | Source MAC      : 0:15:5d:d5:4a:cd 
+    | Destination MAC : 0:15:5d:66:c4:1f 
+    | Source MAC      : 0:15:5d:2a:8d:4f 
     | Protocol        : IP 
 
 IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
-    | Identification         : 10835 
+    | Total Length           : 52 Bytes 
+    | Identification         : 57658 
     | Fragment Offset        : 16384 Bytes 
     | Time to Live           : 64 
-    | Transport Protocol     : 1 
-    | Checksum               : 49768 
+    | Transport Protocol     : 6 
+    | Checksum               : 44416 
     | Source IP Address      : 172.31.241.110 
-    | Destination IP Address : 142.251.33.100 
+    | Destination IP Address : 149.112.121.10 
 
-ICMP Header
-    | Type     : 8 (Echo)
-    | Code     : 0
-    | Checksum : 37898
+TCP Header
+    | Source Port            : 32874 
+    | Destination Port       : 443 
+    | Sequence Number        : 1453043471 
+    | Acknowledgment Number  : 2756121172 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 502 
+    | Checksum               : 44079 
+    | Urgent Pointer         : 0 
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
+	 00 15 5D 66 C4 1F 00 15 5D 2A 8D 4F 08 00            .....]f....]*.O.
 IP Header
-	 45 00 00 54 2A 53 40 00 40 01 C2 68 AC 1F F1 6E      E..T*S@.@..h...n
-	 8E FB 21 64                                          T*S@.@..h...n..!
-ICMP Header
-	 08 00 94 0A 00 2C 00 05                              h...n..!d.....,.
+	 45 00 00 34 E1 3A 40 00 40 06 AD 80 AC 1F F1 6E      E..4.:@.@......n
+	 95 70 79 0A                                          4.:@.@......n.py
+TCP Header
+	 80 6A 01 BB 56 9B AF 0F A4 47 12 54 80 10 01 F6      .j..V....G.T....
+	 AC 2F 00 00 01 01 08 0A AA A7 22 A3 52 B4 55 E3      ../........".R.U
 Payload
-	 29 A8 49 65 00 00 00 00 30 E4 01 00 00 00 00 00      ).Ie....0.......
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
 
-===================================ICMP Packet==================================
+===================================TCP Packet==================================
 
 Ethernet Header
-    | Destination MAC : 0:15:5d:d5:4a:cd 
-    | Source MAC      : 0:15:5d:d5:41:88 
+    | Destination MAC : 0:15:5d:66:c4:1f 
+    | Source MAC      : 0:15:5d:2a:8d:4f 
     | Protocol        : IP 
 
 IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
-    | Identification         : 0 
-    | Fragment Offset        : 0 Bytes 
-    | Time to Live           : 117 
-    | Transport Protocol     : 1 
-    | Checksum               : 63419 
-    | Source IP Address      : 142.251.33.100 
+    | Total Length           : 730 Bytes 
+    | Identification         : 57659 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 6 
+    | Checksum               : 43737 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 149.112.121.10 
+
+TCP Header
+    | Source Port            : 32874 
+    | Destination Port       : 443 
+    | Sequence Number        : 1453043471 
+    | Acknowledgment Number  : 2756121172 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 1 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 502 
+    | Checksum               : 44757 
+    | Urgent Pointer         : 0 
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D 66 C4 1F 00 15 5D 2A 8D 4F 08 00            .....]f....]*.O.
+IP Header
+	 45 00 02 DA E1 3B 40 00 40 06 AA D9 AC 1F F1 6E      E....;@.@......n
+	 95 70 79 0A                                          ..;@.@......n.py
+TCP Header
+	 80 6A 01 BB 56 9B AF 0F A4 47 12 54 80 18 01 F6      .j..V....G.T....
+	 AE D5 00 00 01 01 08 0A AA A7 22 A4 52 B4 55 E3      ...........".R.U
+Payload
+	 16 03 01 02 A1 01 00 02 9D 03 03 A3 1C 72 99 1B      .............r..
+	 91 46 40 60 A4 C6 58 A1 8A 6E 75 21 CF 32 2C AA      .F@`..X..nu!.2,.
+	 63 1F 27 1A 7D E4 8F 44 F6 DC 85 20 FD 19 8B 24      c.'.}..D... ...$
+	 3F D0 16 56 B6 5A 20 78 19 A3 11 86 A7 76 A8 D4      ?..V.Z x.....v..
+	 7E E1 00 27 41 BE A2 31 75 6B 47 CC 00 22 13 01      ~..'A..1ukG.."..
+	 13 03 13 02 C0 2B C0 2F CC A9 CC A8 C0 2C C0 30      .....+./.....,.0
+	 C0 0A C0 09 C0 13 C0 14 00 9C 00 9D 00 2F 00 35      ............./.5
+	 01 00 02 32 00 00 00 23 00 21 00 00 1E 70 72 69      ...2...#.!...pri
+	 76 61 74 65 2E 63 61 6E 61 64 69 61 6E 73 68 69      vate.canadianshi
+	 65 6C 64 2E 63 69 72 61 2E 63 61 00 17 00 00 FF      eld.cira.ca.....
+	 01 00 01 00 00 0A 00 0E 00 0C 00 1D 00 17 00 18      ................
+	 00 19 01 00 01 01 00 0B 00 02 01 00 00 23 00 00      .............#..
+	 00 10 00 0E 00 0C 02 68 32 08 68 74 74 70 2F 31      .......h2.http/1
+	 2E 31 00 05 00 05 01 00 00 00 00 00 22 00 0A 00      .1.........."...
+	 08 04 03 05 03 06 03 02 03 00 33 00 6B 00 69 00      ..........3.k.i.
+	 1D 00 20 3B 89 B0 F0 BF 01 99 49 06 15 5E 5E F7      .. ;......I..^^.
+	 54 B4 27 14 6B 17 F2 98 E0 5A E8 D0 06 FC 2D 38      T.'.k....Z....-8
+	 E5 4E 2A 00 17 00 41 04 A2 C4 9B BA F4 A7 EF 16      .N*...A.........
+	 8C EA C2 DC A0 5B AD 76 19 BA 57 5B C1 99 F7 08      .....[.v..W[....
+	 E3 14 AD 53 9B 95 7B 3E BC D7 FD 31 E4 C8 E1 B1      ...S..{>...1....
+	 02 D5 6C EF 0E 14 54 D1 DD 8B 88 9E B3 7F 24 D8      ..l...T.......$.
+	 E3 FE 76 1F 15 C1 BE 85 00 2B 00 05 04 03 04 03      ..v......+......
+	 03 00 0D 00 18 00 16 04 03 05 03 06 03 08 04 08      ................
+	 05 08 06 04 01 05 01 06 01 02 03 02 01 00 2D 00      ..............-.
+	 02 01 01 00 1C 00 02 40 01 FE 0D 01 19 00 00 01      .......@........
+	 00 03 FF 00 20 7C A2 E4 1D D7 6A 86 06 FA 2C B1      .... |....j...,.
+	 D8 40 E0 F8 02 1F B2 DD 74 9B 9E 9B DF C6 33 6D      .@......t.....3m
+	 70 D7 39 5C D3 00 EF A9 D4 90 C4 05 ED F0 F5 40      p.9\...........@
+	 CA 29 6E 6B F2 A6 AC C7 8A 1E BD 94 B1 32 11 81      .)nk.........2..
+	 09 E0 83 EA 7C 3C C1 BB 5E 98 EC 65 A5 6C B8 D9      ....|<..^..e.l..
+	 5A B8 7A 5E AB 2B E9 C8 2B E0 7E C3 9B 14 E5 55      Z.z^.+..+.~....U
+	 A0 1D B3 9F 96 34 CE C8 C3 2C E4 AF 81 EB 16 F2      .....4...,......
+	 5F 80 B9 F3 0F 54 6D F7 9F C5 06 10 9B FD AB 79      _....Tm........y
+	 A1 C1 B3 66 23 69 E7 76 A8 47 42 9B 0F 45 EE FB      ...f#i.v.GB..E..
+	 7D FB E9 9F 2A 2B 83 01 40 66 5A CA 08 05 02 3E      }...*+..@fZ....>
+	 70 60 9D 01 54 4C 46 39 DF 74 B5 C4 5D 0B AC 4E      p`..TLF9.t..]..N
+	 86 0E 86 83 4A 95 28 0D D9 EF 9D 55 5C AD 6A 53      ....J.(....U\.jS
+	 B4 D9 C5 10 67 FB BB F7 3A FC FC 4D 38 0A E2 85      ....g...:..M8...
+	 23 68 52 55 20 4D B6 06 33 06 C3 E8 78 08 FD A5      #hRU M..3...x...
+	 8B 05 C5 2B 9A F9 D3 67 A7 9D B8 26 5F 45 E8 86      ...+...g...&_E..
+	 94 E6 F7 83 05 C8 6A AA 9E EF 48 0C 67 DC DB B6      ......j...H.g...
+	 3C 9A B1 9D E8 EC 00 E2 84 66 E9 D8 42 B9 6F 01      <........f..B.o.
+	 79 42 54 66 B3 05                                    ....f..B.o.yBTf.
+
+===================================TCP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:2a:8d:4f 
+    | Source MAC      : 0:15:5d:66:c4:1f 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 52 Bytes 
+    | Identification         : 2382 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 58 
+    | Transport Protocol     : 6 
+    | Checksum               : 35693 
+    | Source IP Address      : 149.112.121.10 
     | Destination IP Address : 172.31.241.110 
 
-ICMP Header
-    | Type     : 0 (Echo Reply)
-    | Code     : 0
-    | Checksum : 39946
+TCP Header
+    | Source Port            : 443 
+    | Destination Port       : 32862 
+    | Sequence Number        : 3683343544 
+    | Acknowledgment Number  : 357296134 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 60 
+    | Checksum               : 40150 
+    | Urgent Pointer         : 0 
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D D5 4A CD 00 15 5D D5 41 88 08 00            .....].J...].A..
+	 00 15 5D 2A 8D 4F 00 15 5D 66 C4 1F 08 00            .....]*.O..]f...
 IP Header
-	 45 00 00 54 00 00 00 00 75 01 F7 BB 8E FB 21 64      E..T....u.....!d
-	 AC 1F F1 6E                                          T....u.....!d...
-ICMP Header
-	 00 00 9C 0A 00 2C 00 05                              ...!d...n.....,.
+	 45 00 00 34 09 4E 40 00 3A 06 8B 6D 95 70 79 0A      E..4.N@.:..m.py.
+	 AC 1F F1 6E                                          4.N@.:..m.py....
+TCP Header
+	 01 BB 80 5E DB 8B 5C B8 15 4B E8 06 80 10 00 3C      ...^..\..K.....<
+	 9C D6 00 00 01 01 08 0A 52 B4 55 F7 AA A7 22 9F      <........R.U..."
 Payload
-	 29 A8 49 65 00 00 00 00 30 E4 01 00 00 00 00 00      ).Ie....0.......
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
 
-===================================ICMP Packet==================================
+===================================TCP Packet==================================
 
 Ethernet Header
-    | Destination MAC : 0:15:5d:d5:41:88 
-    | Source MAC      : 0:15:5d:d5:4a:cd 
+    | Destination MAC : 0:15:5d:2a:8d:4f 
+    | Source MAC      : 0:15:5d:66:c4:1f 
     | Protocol        : IP 
 
 IP Header
     | IP Version             : 4 
     | Header Length          : 20 Bytes 
     | Type of Service        : 0 
-    | Total Length           : 84 Bytes 
-    | Identification         : 10885 
+    | Total Length           : 2948 Bytes 
+    | Identification         : 2383 
     | Fragment Offset        : 16384 Bytes 
-    | Time to Live           : 64 
-    | Transport Protocol     : 1 
-    | Checksum               : 49718 
-    | Source IP Address      : 172.31.241.110 
-    | Destination IP Address : 142.251.33.100 
+    | Time to Live           : 58 
+    | Transport Protocol     : 6 
+    | Checksum               : 32796 
+    | Source IP Address      : 149.112.121.10 
+    | Destination IP Address : 172.31.241.110 
 
-ICMP Header
-    | Type     : 8 (Echo)
-    | Code     : 0
-    | Checksum : 28418
+TCP Header
+    | Source Port            : 443 
+    | Destination Port       : 32862 
+    | Sequence Number        : 3683343544 
+    | Acknowledgment Number  : 357296134 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 60 
+    | Checksum               : 44047 
+    | Urgent Pointer         : 0 
 
                                    RAW DATA                                   
 Ethernet Header
-	 00 15 5D D5 41 88 00 15 5D D5 4A CD 08 00            .....].A...].J..
+	 00 15 5D 2A 8D 4F 00 15 5D 66 C4 1F 08 00            .....]*.O..]f...
 IP Header
-	 45 00 00 54 2A 85 40 00 40 01 C2 36 AC 1F F1 6E      E..T*.@.@..6...n
-	 8E FB 21 64                                          T*.@.@..6...n..!
-ICMP Header
-	 08 00 6F 02 00 2C 00 06                              6...n..!d..o..,.
+	 45 00 0B 84 09 4F 40 00 3A 06 80 1C 95 70 79 0A      E....O@.:....py.
+	 AC 1F F1 6E                                          ..O@.:....py....
+TCP Header
+	 01 BB 80 5E DB 8B 5C B8 15 4B E8 06 80 10 00 3C      ...^..\..K.....<
+	 AC 0F 00 00 01 01 08 0A 52 B4 55 F9 AA A7 22 9F      <........R.U..."
 Payload
-	 2A A8 49 65 00 00 00 00 54 EB 01 00 00 00 00 00      *.Ie....T.......
-	 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F      ................
-	 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F       !"#$%&'()*+,-./
-	 30 31 32 33 34 35 36 37                              '()*+,-./0123456
+	 16 03 03 00 7A 02 00 00 76 03 03 07 A5 E4 CA 77      ....z...v......w
+	 5F 58 8E 0D 9D DC 58 70 A8 71 6E 50 6E C4 BB 95      _X....Xp.qnPn...
+	 CD 39 05 04 A7 42 38 69 02 60 85 20 0B E6 B4 79      .9...B8i.`. ...y
+	 72 4E 2B A5 0A 45 09 83 3F 1A C9 67 E6 6E 78 DE      rN+..E..?..g.nx.
+	 83 72 57 E2 AB EE 30 8C 06 AB C5 82 13 01 00 00      .rW...0.........
+	 2E 00 2B 00 02 03 04 00 33 00 24 00 1D 00 20 CA      ..+.....3.$... .
+	 68 56 63 4B 21 EF 42 2C 7F 3E EA 91 F0 47 F7 C9      hVcK!.B,.>...G..
+	 5A 4A DC 60 C7 D1 B8 B6 14 FF A6 43 C9 18 7B 14      ZJ.`.......C..{.
+	 03 03 00 01 01 17 03 03 00 20 FA 26 0E 6D 9D B9      ......... .&.m..
+	 22 9D 0E 1F ED 5E FF 09 94 C9 35 4E 6C 98 1F 4E      "....^....5Nl..N
+	 90 2F F7 68 A6 F2 F5 17 46 BC 17 03 03 0C 0A 23      ./.h....F......#
+	 F5 BF D3 F0 80 DD 22 7B DA 7E 3E CA 92 82 E6 BA      ......"{.~>.....
+	 E4 67 07 0A 87 59 20 4C AC 11 2A 45 DF A7 2F 9E      .g...Y L..*E../.
+	 AD 39 68 42 9B E6 0D A0 03 02 D8 16 3E 09 EE 01      .9hB........>...
+	 4B D5 00 36 BC 8A 2B 22 6B B4 6A E5 67 E2 7D 13      K..6..+"k.j.g.}.
+	 EC 2F CC 88 30 8D A9 10 8D BE 24 AB 46 CB AE 29      ./..0.....$.F..)
+	 F3 CA 37 32 1A 57 9C BA B8 94 56 1F 8B 8F A5 1A      ..72.W....V.....
+	 DA DF F2 A1 1A FA CF F2 78 72 1A FC 1D 78 3D 23      ........xr...x=#
+	 34 14 88 57 87 F3 0D BE 51 F8 F5 D5 28 76 0C 49      4..W....Q...(v.I
+	 D0 70 87 05 E3 C2 7C 66 09 0C 5A 18 C2 54 38 A4      .p....|f..Z..T8.
+	 72 42 F7 7E E8 A2 F5 C7 ED C1 58 6F A5 B7 6F 3B      rB.~......Xo..o;
+	 62 4D 5F 60 50 A5 31 20 F0 F9 43 8F DB 24 7D A7      bM_`P.1 ..C..$}.
+	 E7 2A FA 09 6F 5E E2 5B E0 05 52 9E 68 4F A3 80      .*..o^.[..R.hO..
+	 EB 6C 02 C3 EA 1B 96 FC 0A B3 BE 6B 07 4A 5B 2E      .l.........k.J[.
+	 21 D8 6E 96 9B 85 CF 7F 04 F8 2D 37 E1 31 FA 30      !.n.......-7.1.0
+	 FB 17 C7 8D F4 CF 25 96 42 E5 2A ED A4 6C F6 FA      ......%.B.*..l..
+	 CC 58 55 4E C7 7E 5D 2B 5C AD C7 5C 44 28 B5 38      .XUN.~]+\..\D(.8
+	 34 A3 55 3F 7B F7 2D E3 76 85 54 47 56 FA 7C CF      4.U?{.-.v.TGV.|.
+	 DC 9F 6E 0F 0D 32 25 7E 2A 7C 08 43 3F FD E3 F6      ..n..2%~*|.C?...
+	 5D 0E F9 CF 4E 7F C9 84 05 49 A2 16 CE 85 5D 23      ]...N....I....]#
+	 BD 49 3C 71 5D EE 52 8A AB 5D A5 31 23 7E B8 B7      .I<q].R..].1#~..
+	 2B DC AC AA 0F AC FF 13 6D E0 A9 31 4B 1D 99 84      +.......m..1K...
+	 97 23 0B F7 54 53 5C FB B7 7C A7 E8 E6 53 65 D2      .#..TS\..|...Se.
+	 66 4A 67 C7 A2 33 F5 42 2D B4 74 EE F5 70 F4 A3      fJg..3.B-.t..p..
+	 62 99 1F 84 AF 6E 73 D9 1A 43 82 0D 9B 00 29 80      b....ns..C....).
+	 DB ED EC 4D CA D6 24 BA 24 80 9C 53 C8 51 F3 79      ...M..$.$..S.Q.y
+	 F1 C4 A8 FF 4C 20 92 69 E9 8C 72 39 F2 32 ED 70      ....L .i..r9.2.p
+	 8D EB 0E F1 68 E2 55 16 AB 18 25 7C 1F DB C3 66      ....h.U...%|...f
+	 D2 78 60 37 23 1E 28 97 62 AB CE B0 A0 34 BA 06      .x`7#.(.b....4..
+	 38 A5 24 87 2A E8 48 3A 13 03 A2 AB 3A 53 30 6C      8.$.*.H:....:S0l
+	 F0 55 EF 24 D4 CF 4E C9 E7 DB AB 5F A0 79 32 F3      .U.$..N...._.y2.
+	 92 F9 29 A0 23 9B 08 10 88 95 A2 DA 5F 92 CE 24      ..).#......._..$
+	 DD 83 C7 05 18 F8 21 F3 1F 16 31 5C 2E B5 7C EA      ......!...1\..|.
+	 03 8A E6 AC D3 3C 5A 3B 3B 3B D0 94 BD 31 40 9D      .....<Z;;;...1@.
+	 8A F2 EA 42 81 4A 9D CA FF 0F 73 7B D2 45 16 67      ...B.J....s{.E.g
+	 A5 D0 8A D6 53 B2 2F 40 16 D9 54 73 30 4C 66 C5      ....S./@..Ts0Lf.
+	 FE DC D5 C9 77 49 C6 5A 9C 9F C8 06 44 82 6C 25      ....wI.Z....D.l%
+	 28 8F FF 05 57 D9 46 0B 57 1C 57 35 FC A6 C8 5D      (...W.F.W.W5...]
+	 1D 1D E0 D4 F8 37 4E 4E 08 0D 00 FB BC 90 D8 CA      .....7NN........
+	 9F 55 16 C8 05 92 9A 75 4F 67 9B 2F 90 2B B0 E9      .U.....uOg./.+..
+	 EF 19 38 45 B3 C9 00 44 36 E4 0E E0 35 19 20 1B      ..8E...D6...5. .
+	 5E AC 44 35 BC D0 AA 58 FF 92 82 45 8B 11 1F 0E      ^.D5...X...E....
+	 E6 18 0C D8 47 2C 68 F5 4B FE D7 3F 70 45 BE 66      ....G,h.K..?pE.f
+	 BB BF 3A 66 9B 0C FD 5F 5E 5C B0 DD 9E 44 B3 9D      ..:f..._^\...D..
+	 5A 9B 3A 80 1C 68 D2 AF 7F 34 81 9E 5E 60 BC 57      Z.:..h...4..^`.W
+	 0C C4 81 6E 30 00 3B 75 BB 42 92 11 DA D5 C5 0A      ...n0.;u.B......
+	 AE EF EA 1C 4E 12 D7 03 D5 75 93 18 8C 07 E6 3B      ....N....u.....;
+	 24 B4 08 98 2B AF C1 5A 33 0A 92 27 75 76 E3 59      $...+..Z3..'uv.Y
+	 9A B6 D2 22 90 79 9B 15 E8 2B 96 F3 10 00 10 EA      ...".y...+......
+	 E1 9E 1C 35 AB BC 3A 3B 2C CA 3A B9 8B 5F 01 4C      ...5..:;,.:.._.L
+	 DD 30 BD 58 3F BC 07 39 74 7F 05 F5 AF B2 29 E3      .0.X?..9t.....).
+	 8B 96 73 71 E4 CA E1 6E AD F0 46 6B 90 DA 86 DF      ..sq...n..Fk....
+	 48 2F BE 20 22 C0 BA 28 E5 1A 15 96 AB BE 6B F6      H/. "..(......k.
+	 D7 9D EB 7C AD 93 8A 9A FE A2 C0 88 F4 C9 C1 38      ...|...........8
+	 9A 69 06 64 22 F2 4E FF 61 8E 46 FB B5 B3 3C 20      .i.d".N.a.F...< 
+	 43 9F 35 F5 F2 E0 DF ED B8 06 23 7E 1B BC 0E 20      C.5.......#~... 
+	 A9 A2 6F 1C D0 E3 6A 97 E8 7A B7 3E 12 16 2D 23      ..o...j..z.>..-#
+	 7E 7F 5D 6C D2 C6 6A 90 C4 87 68 6D 24 E2 7E BA      ~.]l..j...hm$.~.
+	 04 97 E5 A8 E5 99 E9 0C CA A6 F0 98 DB 24 72 40      .............$r@
+	 B4 C3 A4 5B 4E AA E4 4B 35 2C 4B 75 A6 93 26 F8      ...[N..K5,Ku..&.
+	 50 EE 5C F3 86 FE A3 5E F7 6E C8 54 19 3A A6 BC      P.\....^.n.T.:..
+	 33 D1 85 5D A3 13 8C 1D 33 80 25 FF C1 57 28 79      3..]....3.%..W(y
+	 E7 A0 09 43 F8 85 BE 77 64 14 F4 52 3F 59 79 DB      ...C...wd..R?Yy.
+	 FB 74 80 7E AA 15 C7 85 20 5C 24 AA A6 84 47 42      .t.~.... \$...GB
+	 A8 8A 78 AA 05 8D 99 17 AB 69 77 B4 AD 66 C2 34      ..x......iw..f.4
+	 A0 FC D1 A0 E0 46 47 A6 A9 CD BB 10 D4 DE CD 26      .....FG........&
+	 27 F9 CB 78 12 E5 97 88 07 DB 33 18 28 47 16 23      '..x......3.(G.#
+	 4C 81 5A A5 30 CE 0C 70 C9 FD 18 9E 19 4A 9D 32      L.Z.0..p.....J.2
+	 31 12 35 FA 36 C0 FC E5 0B FF 8E 6F 4A 2E 38 C5      1.5.6......oJ.8.
+	 24 84 12 E9 36 F8 BF DE 5E 83 8C 1A B8 20 95 EC      $...6...^.... ..
+	 55 D3 67 E6 C9 12 D2 93 55 A4 8F A1 57 49 B2 C8      U.g.....U...WI..
+	 99 6F 11 F6 69 E4 08 09 C7 12 20 AB 77 C5 E7 13      .o..i..... .w...
+	 9F 3D 18 32 A0 CD A0 FC CC 49 5E 52 F2 26 12 1D      .=.2.....I^R.&..
+	 A9 4A B7 67 F7 89 E0 4B 67 FC 02 B7 77 44 3E 46      .J.g...Kg...wD>F
+	 61 42 7F 49 04 0C 65 4C 2B CA 06 DB 11 74 23 A5      aB.I..eL+....t#.
+	 99 D6 DF D6 A1 6F AC 7B 48 43 12 D8 C0 2A 5F 2C      .....o.{HC...*_,
+	 1D AB 97 8E 14 56 D7 65 C5 59 BE BE 97 F2 AA 16      .....V.e.Y......
+	 2B B4 3C 99 EA 29 48 EF 7D 10 72 92 93 8F 41 A1      +.<..)H.}.r...A.
+	 CB EB DB BF CC 12 68 C4 C5 DB 9C A7 94 D6 D4 B3      ......h.........
+	 7A B5 9F B2 78 8A 3A E5 8D B6 FE 18 EC 35 31 D6      z...x.:......51.
+	 E2 96 5E 3D 55 6A 7D BD D3 5C 1F D0 44 20 CA 20      ..^=Uj}..\..D . 
+	 6B 46 F9 51 81 23 71 E5 0F 62 31 FE 99 8F 15 6E      kF.Q.#q..b1....n
+	 38 16 C7 EA 42 7D 75 47 C0 6B 45 C6 76 55 61 3A      8...B}uG.kE.vUa:
+	 89 79 84 EB 2A FD BC B9 5C 6C AA DD A7 76 3C 18      .y..*...\l...v<.
+	 7F D1 9E 6A 1D 66 DF E2 6B C8 80 B9 0F 93 C4 C1      ...j.f..k.......
+	 B8 B3 D1 4C 2E 4C 7C B1 7A CA 87 94 AD 50 29 32      ...L.L|.z....P)2
+	 A7 0D 2F 82 67 2A 30 C1 2D 37 93 86 EB 7F B4 6D      ../.g*0.-7.....m
+	 31 09 86 7F 3C D5 B5 69 80 BD 78 97 AB E9 DB AF      1...<..i..x.....
+	 04 C1 B7 7E 32 00 F8 62 33 E0 F4 45 21 D5 14 0D      ...~2..b3..E!...
+	 E8 9C 0A C9 BE 46 F0 15 92 CD 74 08 F4 80 93 C8      .....F....t.....
+	 17 A6 B7 13 CD 9B 68 9A E3 48 85 F6 63 D8 99 E7      ......h..H..c...
+	 0A 3F 6E BD E6 33 DA 4F 89 A3 A7 25 93 A8 F2 4C      .?n..3.O...%...L
+	 DE 47 C1 4E BD E8 02 D5 9E 8A FE 1E EC DA 03 DA      .G.N............
+	 1C 1E 09 89 F2 8D AD AF 55 A2 C7 83 B5 11 34 51      ........U.....4Q
+	 1F 74 F1 AB F3 5C 60 CB 25 A9 02 91 3D 9C 36 22      .t...\`.%...=.6"
+	 A3 90 7E E9 D0 0E 7B 9F A9 F6 CA D7 27 CD 74 C5      ..~...{.....'.t.
+	 68 24 02 16 58 79 89 80 52 D1 EA B2 12 BC CC BC      h$..Xy..R.......
+	 B5 4C 32 61 7C 5E 6D 3F 46 8E 54 BD 4A CF 6F B7      .L2a|^m?F.T.J.o.
+	 94 A4 BF 3C F0 7A 03 A2 2C D7 CC 23 BF 27 9F 6C      ...<.z..,..#.'.l
+	 0B 61 56 22 3E 90 4C 28 EF 14 8F D0 6B 93 C5 77      .aV">.L(....k..w
+	 F1 6C 73 1F 55 A6 0E 62 EC F3 06 59 F7 51 CF B6      .ls.U..b...Y.Q..
+	 3D 9C BD 6D 64 8A C7 80 A7 5F 89 3E D1 1F 24 C8      =..md...._.>..$.
+	 DD 3A DB 4A 6D 0D 17 7B 47 14 CE 8C 76 1D 7E E8      .:.Jm..{G...v.~.
+	 19 3D 12 DB B3 C8 0B 1C C8 5B 07 C8 EB 61 CD BB      .=.......[...a..
+	 6B 03 FD 96 CD BD 65 1E 78 24 53 D6 A1 7C 7A 31      k.....e.x$S..|z1
+	 6B D1 DF 23 28 95 C4 2E A5 16 74 31 7E B6 86 17      k..#(.....t1~...
+	 21 2F 41 C8 31 CF F6 B4 91 8C 7F 9B BF 01 A3 80      !/A.1...........
+	 6A 9F 0D 06 65 57 59 1B 72 B1 62 49 90 8E 0D 35      j...eWY.r.bI...5
+	 D7 B7 90 41 0F 2C 18 E1 3C 83 56 50 FD F2 2A C0      ...A.,..<.VP..*.
+	 92 18 6B 46 BD D2 9B B1 7C 99 7C 9A 13 CC B6 69      ..kF....|.|....i
+	 BC A2 D6 A1 19 57 A7 B9 63 E5 3A 16 D8 09 31 26      .....W..c.:...1&
+	 11 00 80 10 9D 0D 96 80 C8 F8 20 33 27 FA DE C8      .......... 3'...
+	 D6 58 05 AB 06 A7 59 04 EE 4F 89 FF 73 7D 3F 77      .X....Y..O..s}?w
+	 24 5F 03 7F 63 10 40 FA FD 57 F2 0B FC 6E 2E 9F      $_..c.@..W...n..
+	 AE D9 57 71 22 39 39 9E 42 58 54 E3 21 E8 F2 04      ..Wq"99.BXT.!...
+	 3C 60 3B 60 FF 2C D3 01 E3 7C 26 9C 3A E0 22 89      <`;`.,...|&.:.".
+	 DD 2E CA 07 89 91 3B 23 69 19 68 71 E5 E2 16 62      ......;#i.hq...b
+	 1C 05 CE 87 5F C1 51 8C 3E CB 51 D5 66 EA 19 0E      ...._.Q.>.Q.f...
+	 2F 09 32 3D 95 67 8F 24 54 65 5F 60 F1 C7 8F 64      /.2=.g.$Te_`...d
+	 E8 7E 89 3A 12 F8 BE 2B 5E 85 80 75 AF 3C 26 8C      .~.:...+^..u.<&.
+	 7D 9D 6C A1 B0 37 25 26 37 50 15 29 B9 81 8C BA      }.l..7%&7P.)....
+	 7D 7A AE C7 F7 8A 85 45 C1 42 2B DD D8 A8 CE 33      }z.....E.B+....3
+	 55 F9 0C D1 CF F7 9D 05 94 60 7C D7 4A 42 BB 6B      U........`|.JB.k
+	 22 41 85 C8 4E FE EC AC 31 E4 56 CD 5E 1B 31 09      "A..N...1.V.^.1.
+	 70 FD 05 CB D9 9B 8B CC 67 30 D8 E4 10 FF 1A 66      p.......g0.....f
+	 0C 95 49 21 61 92 ED AF 46 16 1C EE BC 43 F0 FD      ..I!a...F....C..
+	 3C 0F D5 DB 4D DF 03 DB CE 0C 60 3F 10 2A 4E 7E      <...M.....`?.*N~
+	 83 E2 FA 53 B2 D4 BB D0 35 7F F3 4D 42 1C 9E 0A      ...S....5..MB...
+	 36 EB 0A 1A 2B B3 EF 42 26 DB 92 95 33 20 6D A9      6...+..B&...3 m.
+	 FC 38 22 DC E5 DD F5 0C 18 8E 24 4D E3 53 08 B5      .8".......$M.S..
+	 3E 1D 76 48 64 74 BD A6 10 CA 01 92 21 81 FA B8      >.vHdt......!...
+	 BD DA 73 4A ED 4C 66 1A D4 07 16 77 D6 93 E3 AD      ..sJ.Lf....w....
+	 FE 45 83 00 B8 CC 35 D4 ED B2 C9 11 AF 1C FD 0D      .E....5.........
+	 F0 CF 6A 34 F0 3A 8F 89 E3 35 B6 F3 8A D7 01 45      ..j4.:...5.....E
+	 D0 BE 91 00 17 0B 76 83 30 64 BB 5F 01 C3 12 BD      ......v.0d._....
+	 3F 01 F7 B7 98 4C A4 9C F8 0C AC FF 07 F1 C2 EA      ?....L..........
+	 BC 08 E0 9C 6A A6 4F 3F 44 27 A5 DE 50 3F 99 16      ....j.O?D'..P?..
+	 E8 FD 19 CA 44 4B 74 A8 1D 5B 71 6E 05 80 C4 27      ....DKt..[qn...'
+	 E2 91 2B F3 0D 21 25 9B 74 69 8F 2A 36 1D 84 E8      ..+..!%.ti.*6...
+	 30 91 B5 90 84 9F 5C 53 1C BB 45 CD 76 C9 08 3C      0.....\S..E.v..<
+	 7A 8A F9 3A 1C 06 55 BE 6F B1 D9 B1 52 0D 40 ED      z..:..U.o...R.@.
+	 9F 1C 94 A5 A7 23 1B E1 B4 98 2E 5F 77 BB 0B FD      .....#....._w...
+	 E9 EC 44 33 C0 BC 9F E1 00 30 8F F9 E4 6C 1F E4      ..D3.....0...l..
+	 A7 30 FB 3C 15 CA 83 42 88 B2 71 C4 9C 12 A3 58      .0.<...B..q....X
+	 54 63 F1 98 50 DF 92 74 33 5F DC 6E 7C 1D BC 6C      Tc..P..t3_.n|..l
+	 3F 62 48 15 EA 21 7D 5F 31 4A 47 4C 36 82 81 4D      ?bH..!}_1JGL6..M
+	 75 5B 0A DA C1 74 A8 3F AE 92 BB 37 8E F3 E7 5F      u[...t.?...7..._
+	 6A 1E AB F2 54 8C A3 C3 8D 4D 87 45 14 9D 6B AD      j...T....M.E..k.
+	 D4 38 E0 49 96 1E D9 49 CB 2E BA EC AB EC BC 1C      .8.I...I........
+	 47 14 55 2E A1 23 36 AF 40 3C 9E 21 8F E3 CF 05      G.U..#6.@<.!....
+	 8C 11 35 26 DF 63 75 A9 C0 F1 F3 D3 35 43 B6 04      ..5&.cu.....5C..
+	 0F B6 A7 C3 C7 73 02 2B 61 1E 8F 90 22 58 C6 AA      .....s.+a..."X..
+	 32 CD 91 D8 9E 62 FA 97 55 BD 61 29 CE B0 09 A9      2....b..U.a)....
+	 0D 48 F3 59 11 68 90 D9 B6 30 8F B2 2E BD E8 91      .H.Y.h...0......
+	 B3 97 9D A2 9D DD 7C 35 30 5C 2B 7D EF FA 62 C8      ......|50\+}..b.
+	 36 9A 1E 45 32 FB 20 F7 91 24 F4 23 DB D2 9B A7      6..E2. ..$.#....
+	 F6 A9 32 BC 57 A5 AC 72 6B 54 6F 45 D4 88 D3 75      ..2.W..rkToE...u
+	 3D 25 F1 B8 B0 84 65 51 D1 63 FC 7A 82 D1 2A 45      =%....eQ.c.z..*E
+	 5E 96 40 6E F8 B9 9A 55 7D 60 83 99 D4 51 47 E3      ^.@n...U}`...QG.
+	 19 EB D3 5A E2 15 8C 19 6A ED F1 18 58 61 A4 97      ...Z....j...Xa..
+	 D3 8E 97 BE CE AA 93 3A 30 BB 58 0B 2C 41 A7 47      .......:0.X.,A.G
+	 C8 5E B8 0D 74 D6 C1 F9 2B 94 B2 0B D6 C5 AA DE      .^..t...+.......
+	 74 C4 B4 68 44 D1 AE F3 7D FE 1E E1 F5 5D D3 E5      t..hD...}....]..
+	 AE 74 D9 1A 19 67 EC 72 48 8C 5A DF 27 5A 61 56      .t...g.rH.Z.'ZaV
+	 4D 03 EF D2 84 E8 23 4E 40 78 51 1B 0E CC 6A 8E      M.....#N@xQ...j.
+	 38 D2 98 1F 68 47 9E 2E 5C 0A 8E 6F 85 5F 27 0D      8...hG..\..o._'.
+	 57 E6 46 E2 BF F0 2C 2C E0 56 F9 D9 11 FB 3D CF      W.F...,,.V....=.
+	 53 5B 9C FC ED 77 49 D9 77 A2 6D 56 2C 6F 96 C0      S[...wI.w.mV,o..
+	 00 5B 47 C2 00 6A 76 71 7F 53 4F 40 91 E9 23 AC      .[G..jvq.SO@..#.
+	 EF FD B8 CE 97 88 41 59 1A 8D 09 C7 F6 E5 38 CA      ......AY......8.
+	 5F 5A 86 59 BF AC 8D 3A 3B 90 E0 23 D5 13 FC 84      ._Z.Y...:;..#...
+
+===================================TCP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:66:c4:1f 
+    | Source MAC      : 0:15:5d:2a:8d:4f 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 52 Bytes 
+    | Identification         : 25108 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 6 
+    | Checksum               : 11431 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 149.112.121.10 
+
+TCP Header
+    | Source Port            : 32862 
+    | Destination Port       : 443 
+    | Sequence Number        : 357296134 
+    | Acknowledgment Number  : 3683346440 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 498 
+    | Checksum               : 44079 
+    | Urgent Pointer         : 0 
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D 66 C4 1F 00 15 5D 2A 8D 4F 08 00            .....]f....]*.O.
+IP Header
+	 45 00 00 34 62 14 40 00 40 06 2C A7 AC 1F F1 6E      E..4b.@.@.,....n
+	 95 70 79 0A                                          4b.@.@.,....n.py
+TCP Header
+	 80 5E 01 BB 15 4B E8 06 DB 8B 68 08 80 10 01 F2      .^...K....h.....
+	 AC 2F 00 00 01 01 08 0A AA A7 22 B9 52 B4 55 F9      ../........".R.U
+Payload
+
+===================================TCP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:2a:8d:4f 
+    | Source MAC      : 0:15:5d:66:c4:1f 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 757 Bytes 
+    | Identification         : 2385 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 58 
+    | Transport Protocol     : 6 
+    | Checksum               : 34985 
+    | Source IP Address      : 149.112.121.10 
+    | Destination IP Address : 172.31.241.110 
+
+TCP Header
+    | Source Port            : 443 
+    | Destination Port       : 32862 
+    | Sequence Number        : 3683346440 
+    | Acknowledgment Number  : 357296134 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 1 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 60 
+    | Checksum               : 48490 
+    | Urgent Pointer         : 0 
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D 2A 8D 4F 00 15 5D 66 C4 1F 08 00            .....]*.O..]f...
+IP Header
+	 45 00 02 F5 09 51 40 00 3A 06 88 A9 95 70 79 0A      E....Q@.:....py.
+	 AC 1F F1 6E                                          ..Q@.:....py....
+TCP Header
+	 01 BB 80 5E DB 8B 68 08 15 4B E8 06 80 18 00 3C      ...^..h..K.....<
+	 BD 6A 00 00 01 01 08 0A 52 B4 55 F9 AA A7 22 9F      <.j......R.U..."
+Payload
+	 86 67 65 D1 63 F0 B7 F4 CF 9F 21 57 24 F9 07 5B      .ge.c.....!W$..[
+	 29 3E 88 79 A0 24 9E 98 08 F1 13 99 1B E1 C3 1C      )>.y.$..........
+	 CF 0B 67 E3 29 0E 49 CC B8 5F A4 9D 39 C1 16 C3      ..g.).I.._..9...
+	 BD CE 72 6B 66 76 0B 38 1B F7 C4 B1 77 09 67 1E      ..rkfv.8....w.g.
+	 E3 40 82 38 49 50 96 9A D4 6F B8 29 D6 B1 D3 A5      .@.8IP...o.)....
+	 D5 03 F1 34 5B 80 3F 09 E5 C0 16 36 54 D9 9E C3      ...4[.?....6T...
+	 F5 89 D7 4E 99 9D 93 BF 3A FF 1D A9 8E CA 36 C2      ...N....:.....6.
+	 76 B4 9B 7A 98 13 F5 16 36 52 1E 34 27 31 20 E3      v..z....6R.4'1 .
+	 79 59 F6 16 57 BC 45 D2 61 DA 9D D5 60 EE 09 C3      yY..W.E.a...`...
+	 D2 32 3A 06 C1 73 14 99 AC E2 FB 23 F9 11 53 90      .2:..s.....#..S.
+	 B6 90 AD 12 F2 93 EC 92 85 B0 FD 58 10 E7 E5 6D      ...........X...m
+	 EB BE F7 0E 5F 13 27 36 91 A6 03 B6 15 B5 AF 84      ...._.'6........
+	 C5 FB A1 90 0F CF 60 17 88 BC 4A 14 EF 7A 57 B0      ......`...J..zW.
+	 CC 6A B8 B4 CB BD AA BD AC AB A3 97 F6 12 40 C2      .j............@.
+	 18 94 50 D2 F5 FF D3 EA 48 30 C1 E8 27 FE EE 15      ..P.....H0..'...
+	 F8 73 41 3D 5A 8C 60 F3 74 F0 12 C0 C5 EE 9B 61      .sA=Z.`.t......a
+	 39 18 75 DA A5 69 0B 4A A2 C0 A0 DD 40 D5 E0 5A      9.u..i.J....@..Z
+	 A8 FB F6 9F 6B 24 13 8B 06 4B B6 97 31 CC 68 85      ....k$...K..1.h.
+	 D2 F4 C7 52 4A 05 F7 A2 27 9E 54 7E 51 8D 07 18      ...RJ...'.T~Q...
+	 3D 48 77 73 8A 59 0A 89 07 68 B4 8A 10 DF A3 B0      =Hws.Y...h......
+	 50 71 03 FE 2C E3 A0 A5 E4 EF AA CA 3B FE E9 C3      Pq..,.......;...
+	 C5 19 28 DE E0 28 4B 95 06 C1 19 B6 2C AB 1A F3      ..(..(K.....,...
+	 66 6E C1 C1 A5 3B E7 B7 6F 17 03 03 01 19 08 00      fn...;..o.......
+	 BF 80 64 A8 DA E3 F2 27 5A 6C 84 1B DB 8D 1A 8D      ..d....'Zl......
+	 BE AC CF CB 04 EF 29 EC 98 FA 65 71 06 3F 5F E6      ......)...eq.?_.
+	 7F 13 57 E5 0F C2 51 EB BD 83 D5 F6 0C E5 53 4B      ..W...Q.......SK
+	 D5 C2 55 E9 14 A1 7F 7A 24 7F 69 0D 88 87 03 F2      ..U....z$.i.....
+	 C3 70 C6 0F E2 B5 E6 20 48 15 B1 86 6C F7 92 62      .p..... H...l..b
+	 5D 59 E3 23 DC E8 EA 61 F4 68 C4 59 05 89 4D 8B      ]Y.#...a.h.Y..M.
+	 3D DF BA 15 23 6D 5E 58 17 50 DF 2A A9 88 67 E6      =...#m^X.P.*..g.
+	 60 26 CF D0 EA 4E E8 AC 6B 64 C9 60 74 07 1D 66      `&...N..kd.`t..f
+	 14 55 93 90 13 FC 34 F3 DE BA 41 C2 B6 9C DA 4A      .U....4...A....J
+	 9B 6B 95 43 34 B7 D4 F2 D8 1F 67 89 E4 AB F4 D3      .k.C4.....g.....
+	 C4 C7 87 2A E4 3F 59 51 07 30 53 FC 6D A4 2A B2      ...*.?YQ.0S.m.*.
+	 59 FE A2 EC 31 13 2B F1 3A DD C2 50 12 EA 80 C5      Y...1.+.:..P....
+	 67 80 4C 9E 94 A8 C3 65 58 B2 28 C8 2C 44 BD A4      g.L....eX.(.,D..
+	 E5 79 16 F7 CD 87 FA C2 34 1B 94 85 EB 2F EA 2E      .y......4..../..
+	 31 75 C7 BC B1 46 D5 85 59 75 F0 21 2C 5A 1D 9E      1u...F..Yu.!,Z..
+	 D5 E3 C3 6E A2 62 56 F3 B3 E9 70 1A 8E F9 C4 EC      ...n.bV...p.....
+	 0B DE F0 49 AA A4 8F 16 90 D1 A5 98 5D 82 4D EE      ...I........].M.
+	 8D 09 FE 98 E5 47 40 17 03 03 00 35 35 C6 52 EE      .....G@....55.R.
+	 48 96 CC 37 FE 1F A2 AB F9 4F BB 24 DC C8 A4 8B      H..7.....O.$....
+	 BC F9 19 CA 7E C7 B4 26 2B BB B2 B9 DE F6 A3 7D      ....~..&+......}
+	 3D EE E2 3A AC 8F E2 BA 01 EC BD CE 8F E3 E9 37      =..:...........7
+	 C4                                                   =..:...........7
+
+===================================TCP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:66:c4:1f 
+    | Source MAC      : 0:15:5d:2a:8d:4f 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 52 Bytes 
+    | Identification         : 25109 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 6 
+    | Checksum               : 11430 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 149.112.121.10 
+
+TCP Header
+    | Source Port            : 32862 
+    | Destination Port       : 443 
+    | Sequence Number        : 357296134 
+    | Acknowledgment Number  : 3683347145 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 493 
+    | Checksum               : 44079 
+    | Urgent Pointer         : 0 
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D 66 C4 1F 00 15 5D 2A 8D 4F 08 00            .....]f....]*.O.
+IP Header
+	 45 00 00 34 62 15 40 00 40 06 2C A6 AC 1F F1 6E      E..4b.@.@.,....n
+	 95 70 79 0A                                          4b.@.@.,....n.py
+TCP Header
+	 80 5E 01 BB 15 4B E8 06 DB 8B 6A C9 80 10 01 ED      .^...K....j.....
+	 AC 2F 00 00 01 01 08 0A AA A7 22 B9 52 B4 55 F9      ../........".R.U
+Payload
+
+===================================TCP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:2a:8d:4f 
+    | Source MAC      : 0:15:5d:66:c4:1f 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 52 Bytes 
+    | Identification         : 17493 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 58 
+    | Transport Protocol     : 6 
+    | Checksum               : 20582 
+    | Source IP Address      : 149.112.121.10 
+    | Destination IP Address : 172.31.241.110 
+
+TCP Header
+    | Source Port            : 443 
+    | Destination Port       : 32874 
+    | Sequence Number        : 2756121172 
+    | Acknowledgment Number  : 1453044149 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 60 
+    | Checksum               : 4965 
+    | Urgent Pointer         : 0 
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D 2A 8D 4F 00 15 5D 66 C4 1F 08 00            .....]*.O..]f...
+IP Header
+	 45 00 00 34 44 55 40 00 3A 06 50 66 95 70 79 0A      E..4DU@.:.Pf.py.
+	 AC 1F F1 6E                                          4DU@.:.Pf.py....
+TCP Header
+	 01 BB 80 6A A4 47 12 54 56 9B B1 B5 80 10 00 3C      ...j.G.TV......<
+	 13 65 00 00 01 01 08 0A 52 B4 56 01 AA A7 22 A4      <.e......R.V..."
+Payload
+
+===================================TCP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:2a:8d:4f 
+    | Source MAC      : 0:15:5d:66:c4:1f 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 1500 Bytes 
+    | Identification         : 17494 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 58 
+    | Transport Protocol     : 6 
+    | Checksum               : 19133 
+    | Source IP Address      : 149.112.121.10 
+    | Destination IP Address : 172.31.241.110 
+
+TCP Header
+    | Source Port            : 443 
+    | Destination Port       : 32874 
+    | Sequence Number        : 2756121172 
+    | Acknowledgment Number  : 1453044149 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 60 
+    | Checksum               : 11366 
+    | Urgent Pointer         : 0 
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D 2A 8D 4F 00 15 5D 66 C4 1F 08 00            .....]*.O..]f...
+IP Header
+	 45 00 05 DC 44 56 40 00 3A 06 4A BD 95 70 79 0A      E...DV@.:.J..py.
+	 AC 1F F1 6E                                          .DV@.:.J..py....
+TCP Header
+	 01 BB 80 6A A4 47 12 54 56 9B B1 B5 80 10 00 3C      ...j.G.TV......<
+	 2C 66 00 00 01 01 08 0A 52 B4 56 02 AA A7 22 A4      <,f......R.V..."
+Payload
+	 16 03 03 00 7A 02 00 00 76 03 03 69 BA 59 27 42      ....z...v..i.Y'B
+	 19 C4 99 D2 A9 56 0A BE CA C0 61 A7 7C 14 9F 5A      .....V....a.|..Z
+	 3F 36 71 10 00 8E 12 4B CC 6E 11 20 FD 19 8B 24      ?6q....K.n. ...$
+	 3F D0 16 56 B6 5A 20 78 19 A3 11 86 A7 76 A8 D4      ?..V.Z x.....v..
+	 7E E1 00 27 41 BE A2 31 75 6B 47 CC 13 01 00 00      ~..'A..1ukG.....
+	 2E 00 2B 00 02 03 04 00 33 00 24 00 1D 00 20 DE      ..+.....3.$... .
+	 E1 5D CB 0A 5A 05 6F 6D 74 63 7E 3B 8D FF 83 90      .]..Z.omtc~;....
+	 EA FD FD C3 51 94 9A 39 FD 61 57 76 A0 24 13 14      ....Q..9.aWv.$..
+	 03 03 00 01 01 17 03 03 00 20 3B 36 CC 18 3D D1      ......... ;6..=.
+	 AD B3 09 CE 43 97 3E 9C 05 F3 23 4A 51 E4 C7 AB      ....C.>...#JQ...
+	 AD 91 09 14 6C E1 81 61 11 D5 17 03 03 0C 0A 8F      ....l..a........
+	 31 D4 2D 56 14 00 4A DA F9 33 81 1C 66 FD 35 90      1.-V..J..3..f.5.
+	 39 CA 76 01 47 D0 C9 1E 07 95 1A C3 9A D9 26 BA      9.v.G.........&.
+	 03 75 8B 87 DD 27 44 18 26 2B 5E 91 AA 86 D8 E1      .u...'D.&+^.....
+	 C2 B4 81 65 EF 8F 14 66 79 54 28 96 8E FC 65 18      ...e...fyT(...e.
+	 36 17 A5 99 F1 FA C0 D1 1F B7 27 D9 65 C4 20 64      6.........'.e. d
+	 D2 E8 06 02 FE F2 4A 08 08 D1 14 33 78 46 FD 5E      ......J....3xF.^
+	 BC B3 A7 98 95 37 05 2B FA 5C 71 23 78 9C F6 9B      .....7.+.\q#x...
+	 50 C0 9B 87 2C D8 43 76 E7 E7 BD 51 94 1A 05 EC      P...,.Cv...Q....
+	 D7 68 65 84 DB CC FC 7B D0 41 01 43 6A C1 D7 3F      .he....{.A.Cj..?
+	 87 42 80 4E E3 12 78 47 13 35 2A 58 4D 7E 0F C6      .B.N..xG.5*XM~..
+	 18 F7 26 65 26 A2 6A 5C 3B 1B DD FF E0 37 1C 62      ..&e&.j\;....7.b
+	 AD F6 CE D9 FF E6 B6 90 31 FE 83 C0 8D 0C 7F E9      ........1.......
+	 CF FD 52 D0 86 26 C1 AA C1 88 A0 DA 2B DE 52 27      ..R..&......+.R'
+	 8F 98 DB AD 89 3E ED CE C7 6A 90 01 76 33 A6 02      .....>...j..v3..
+	 A7 66 AD 86 E5 A3 89 80 69 05 B4 21 BA BC 30 C0      .f......i..!..0.
+	 F6 09 F2 17 1B EB 28 D4 9B 0C 2B 3B 09 95 11 92      ......(...+;....
+	 4E 81 9B D0 3E 9B 91 27 C6 3E D3 7C 4D 2B 99 FE      N...>..'.>.|M+..
+	 5D 71 6D D5 4B 9A 29 3E 63 FE EC 1A 47 20 8A 2E      ]qm.K.)>c...G ..
+	 7B 48 25 52 3C 39 7D D3 73 2D F2 2C CC E8 46 0F      {H%R<9}.s-.,..F.
+	 E1 CF 05 27 7A A4 C5 84 2D D4 F2 22 AC E1 32 8E      ...'z...-.."..2.
+	 37 79 19 03 C5 DC 95 C0 6C C3 EF 80 A6 A2 81 CF      7y......l.......
+	 CB ED F9 AB 67 69 1E ED 37 11 CB EB F9 DF F2 43      ....gi..7......C
+	 76 29 AC 31 59 F5 B2 C4 7A 55 0D 2A E7 7F D8 E8      v).1Y...zU.*....
+	 24 9C 51 C8 5F 63 22 10 42 B7 1B 84 BC DE F7 BB      $.Q._c".B.......
+	 97 C0 72 C3 0A AC 96 C0 C0 E1 08 C0 4B A9 D4 3A      ..r.........K..:
+	 DB 08 A9 EB 86 1A 80 64 CC 33 79 44 43 29 CB E9      .......d.3yDC)..
+	 4A BD 93 87 DE 66 B1 C7 61 96 28 34 B1 18 A9 D2      J....f..a.(4....
+	 C4 25 DB 5C 06 E8 68 91 DD 99 94 CE E2 1E 73 FE      .%.\..h.......s.
+	 FA 28 10 A1 98 71 26 7C 87 8E 6D D4 7E 42 EB 65      .(...q&|..m.~B.e
+	 A8 55 76 0D D9 12 66 DF 1D 5B 1A 1D 53 18 84 7C      .Uv...f..[..S..|
+	 4A 66 7F ED 7A B8 BA A4 82 43 89 5B BC 0E E2 75      Jf..z....C.[...u
+	 17 75 23 78 6B ED B0 7B BC 61 C4 7D 52 85 AF 60      .u#xk..{.a.}R..`
+	 E9 58 11 31 A4 C5 D1 C7 F9 5F 03 A6 E4 EC A7 43      .X.1....._.....C
+	 64 50 26 5B 6C 65 E6 C9 83 52 9B 0F BE 1D AC 91      dP&[le...R......
+	 D0 CD F6 45 C4 BB 6B 28 7A D3 61 86 B4 8D CF 34      ...E..k(z.a....4
+	 E2 C2 60 BF 77 E0 FD 11 33 D3 4E 82 43 07 88 7F      ..`.w...3.N.C...
+	 CA 05 44 1A 6A AB EA 87 B4 4B 03 AB 48 30 53 13      ..D.j....K..H0S.
+	 CC 4C 56 22 23 53 FF 7A B2 CC DC 11 B9 30 6C 3C      .LV"#S.z.....0l<
+	 55 3C E3 B7 44 F7 98 8D A7 F1 E1 F2 EA 01 25 C9      U<..D.........%.
+	 3F A2 3D AA 63 E4 38 8A EB 61 CB 13 6B 3E 11 F0      ?.=.c.8..a..k>..
+	 73 2E 04 96 CD A0 CE A4 45 E5 09 64 F5 25 24 F5      s.......E..d.%$.
+	 5F DC 87 7A D8 E7 F7 BA B9 8B 46 0C AE 52 7A 73      _..z......F..Rzs
+	 FB 36 A8 1C FC 7E 3B 2D 3A 13 6E 88 12 D6 1B 5E      .6...~;-:.n....^
+	 C8 62 16 08 63 7A CF 6B 48 1B 2E AE F7 E6 E4 16      .b..cz.kH.......
+	 2B 7A 36 F9 3D A9 24 15 D8 B0 29 F4 DB D2 B3 B1      +z6.=.$...).....
+	 98 AA FA 76 11 C4 32 EC 3A 86 88 58 AE 93 AA C3      ...v..2.:..X....
+	 6E 72 6B B7 67 04 25 30 63 A7 A1 93 EA C5 D3 53      nrk.g.%0c......S
+	 A2 38 4D F2 4F D2 C2 17 93 02 5F FF 2E 99 C5 BA      .8M.O....._.....
+	 DF B5 41 54 FC 55 E4 5C 3C 13 21 1E F3 2A AC DC      ..AT.U.\<.!..*..
+	 CC AA AD 38 2F 26 F4 97 3C 92 E3 4A FD D9 B5 F9      ...8/&..<..J....
+	 27 07 FA 41 5D C2 B5 16 CE D9 28 0B 95 F3 A1 30      '..A].....(....0
+	 CB 4A CA F9 A0 49 BD 50 D1 C9 FA E2 81 BA 27 E3      .J...I.P......'.
+	 3E 4F 34 2F EC 82 61 4F 93 EF E4 CA 8B 3D 5F 9F      >O4/..aO.....=_.
+	 1B 22 3C A4 27 42 43 FD AB ED 4D D5 E6 7A 30 CF      ."<.'BC...M..z0.
+	 26 83 69 DD 59 2B 92 87 54 56 7E 5E 4F 1B A5 AA      &.i.Y+..TV~^O...
+	 75 D7 81 F6 CA EF 85 56 1F 7C D2 E3 D1 FE 67 C0      u......V.|....g.
+	 23 20 D2 CD FC B0 99 5C 0D 40 EB B2 A3 EE 92 48      # .....\.@.....H
+	 A7 78 A6 C4 0C 40 01 FF 80 0D D9 8C D7 DC C4 BD      .x...@..........
+	 DF 33 32 51 5F 57 FB 0A 31 FE CE 67 42 5A 60 8C      .32Q_W..1..gBZ`.
+	 28 47 2F 1B 9A 8F A5 74 18 50 68 A4 1C D7 FD EB      (G/....t.Ph.....
+	 D1 C7 4E A1 0E C8 15 8A 38 35 DE A0 50 44 B1 9F      ..N.....85..PD..
+	 41 30 88 37 12 EF FD 1C 39 30 F0 78 F7 0D 25 0C      A0.7....90.x..%.
+	 EF 80 B1 B1 27 64 6B DB A2 04 6D BB DB FD B8 62      ....'dk...m....b
+	 A6 27 17 06 AB 90 D0 2B F0 94 84 63 19 45 D9 8E      .'.....+...c.E..
+	 FF FA 5F E5 63 2F 2F C9 63 0F B4 01 E6 6C 8B 90      .._.c//.c....l..
+	 8C 88 46 D8 92 91 52 CD D0 E3 CF 21 44 D3 9F 4E      ..F...R....!D..N
+	 24 39 09 DD 87 B5 26 41 3C 82 CF D6 65 DC BB F2      $9....&A<...e...
+	 88 2E 32 53 D8 50 CD 2E A8 A7 D4 61 CA 5A 03 32      ..2S.P.....a.Z.2
+	 AD 5F A0 3C A6 DD 40 EF 99 2D EB 07 1B 4C C0 94      ._.<..@..-...L..
+	 76 3E DD B1 79 6B B7 F8 F3 FC CA D2 FB 61 B6 BE      v>..yk.......a..
+	 45 34 FD B6 C5 3B 41 E4 5D 17 C7 14 9C 0D 88 8A      E4...;A.].......
+	 12 A1 D3 EF 54 74 6F A0 25 00 1C 6D C0 5B 22 78      ....Tto.%..m.["x
+	 55 96 43 A1 30 63 54 C4 99 47 A4 C1 D8 40 09 D3      U.C.0cT..G...@..
+	 2B FC AC 77 56 B8 A8 68 E9 E1 6C CD CE 6E A6 BC      +..wV..h..l..n..
+	 47 1F A1 47 D2 02 75 1A 49 3B F5 00 1D 75 65 3E      G..G..u.I;...ue>
+	 B2 0A A7 6E 8E F0 A4 21 DC 7D 6D 88 7B 9E 9B 47      ...n...!.}m.{..G
+	 D5 D6 6E A6 A6 64 BA E9 01 80 A8 D8 6F 0C 0B 5B      ..n..d......o..[
+	 CA DD 87 30 F2 13 40 31 15 B2 6F AA 27 3E F6 00      ...0..@1..o.'>..
+	 07 31 28 CD CE 68 20 BE 73 34 D3 00 A1 04 89 78      .1(..h .s4.....x
+	 84 B5 18 12 23 2E 32 01                              .s4.....x....#.2
+
+===================================TCP Packet==================================
+
+Ethernet Header
+    | Destination MAC : 0:15:5d:66:c4:1f 
+    | Source MAC      : 0:15:5d:2a:8d:4f 
+    | Protocol        : IP 
+
+IP Header
+    | IP Version             : 4 
+    | Header Length          : 20 Bytes 
+    | Type of Service        : 0 
+    | Total Length           : 52 Bytes 
+    | Identification         : 57660 
+    | Fragment Offset        : 16384 Bytes 
+    | Time to Live           : 64 
+    | Transport Protocol     : 6 
+    | Checksum               : 44414 
+    | Source IP Address      : 172.31.241.110 
+    | Destination IP Address : 149.112.121.10 
+
+TCP Header
+    | Source Port            : 32874 
+    | Destination Port       : 443 
+    | Sequence Number        : 1453044149 
+    | Acknowledgment Number  : 2756122620 
+    | Header Length          : 32 Bytes 
+    | Urgent Flag            : 0 
+    | Acknowledgment Flag    : 1 
+    | Push Flag              : 0 
+    | Reset Flag             : 0 
+    | Synchronize Flag       : 0 
+    | Finish Flag            : 0 
+    | Window                 : 501 
+    | Checksum               : 44079 
+    | Urgent Pointer         : 0 
+
+                                   RAW DATA                                   
+Ethernet Header
+	 00 15 5D 66 C4 1F 00 15 5D 2A 8D 4F 08 00            .....]f....]*.O.
+IP Header
+	 45 00 00 34 E1 3C 40 00 40 06 AD 7E AC 1F F1 6E      E..4.<@.@..~...n
+	 95 70 79 0A                                          4.<@.@..~...n.py
+TCP Header
+	 80 6A 01 BB 56 9B B1 B5 A4 47 17 FC 80 10 01 F5      .j..V....G......
+	 AC 2F 00 00 01 01 08 0A AA A7 22 C2 52 B4 56 02      ../........".R.V
+Payload

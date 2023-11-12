@@ -47,9 +47,9 @@ Replace `[options]` with the following:
 - `-h`: Display help and usage information. 
 
 Example usage:
-    `sudo ./packet_sniffer -i eth0 -n 11 -f "host www.google.com" -t 100000 -l captured_packets.txt`
+    `sudo ./packet_sniffer -i eth0 -n 20 -f "tcp or udp or icmp" -t 5000 -l captured_packets.txt`
 
-This command shows a capture instance on `eth0` interface for `11` packets for `10 seconds`. Additionally, `host www.google.com` filter is configured. Finally, the captured output is logged to [`captured_packets.txt`](./captured_packets.txt).
+This command shows a capture instance on `eth0` interface for `20` packets for `5 seconds`. Additionally, `tcp or udp or icmp` filter is configured. Finally, the captured output is logged to [`captured_packets.txt`](./captured_packets.txt). 
 
 > Note: require super user privileges to run the program. 
 
